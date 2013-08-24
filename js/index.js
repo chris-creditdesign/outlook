@@ -6,6 +6,7 @@ var duration = 150;
 /*	Global variable to hold data parsed from the csv file */
 var dataset;
 var allValues = [];
+var displayYear = "value2012";
 
 
 /*	Define map projection */
@@ -96,6 +97,39 @@ d3.csv('data/gpcp_anomalies_1979-2012.csv', function(d) {
 
 function draw() {
 
+	 /* Create the first slider for the year values */
+	fdSlider.createSlider({
+		/*	Associate the select list */
+		inp:document.getElementById("selectYear"),
+		/* 	Use the tween animation 'jump'
+			Jump causes the change callback to only be fired once per change
+		*/
+		animation:"jump",
+		/* Keep the form element hidden */
+		hideInput:false,
+		callbacks:{"change":[updateYearSlider]}
+	});
+
+	/* Event listner for when the user changes the adjust scale checkbox */
+	d3.selectAll("select#selectYear").on("change", function() {
+		console.log(this.value);
+
+		displayYear = this.value;
+
+		/* Redraw the map - taking into account the choice */
+		updateYear();
+	});
+
+
+	/*	Set the display year and call updateYear()
+		When the slider or the select box are changed */
+	function updateYearSlider () {
+		displayYear = this.value;
+		updateYear();
+	};
+
+
+
 	var maxLong = d3.max(dataset, function (d) {
 		return d.long;
 	})
@@ -138,10 +172,7 @@ function draw() {
 	console.log("maxValue is: " + maxValue );
 
 	/*	Define colour scale */
-	var colourScale = d3.scale.linear().domain([minValue,maxValue]).range(['red', 'blue']);
-
-
-
+	var colourScale = d3.scale.linear().domain([-2.5, -2, -1.5, -1, -0.5, 0, 0.5, 1, 1.5, 2, 2.5, 3]).range(["#5A3E17", "#8F6823", "#C3AE4A", "#96B247", "#53B264", "#2CB1A0", "#3EC6DC", "#348FCA", "#2E52A5", "#31328C", "#1F1B5A", "#1A2051"]);
 
 	var rects = svg.selectAll("rect")
 				.data(dataset)
@@ -160,8 +191,19 @@ function draw() {
 					return height / -(minLat - maxLat);
 				})
 				.style("fill", function(d){
-					return colourScale(d.value2012);
-				});				
+					// console.log(d["value2012"]);
+					return colourScale(d["" + displayYear + ""]);
+				})
+				.on("mouseover", function(d) {
+					console.log(d["" + displayYear + ""]);
+				})
+
+	function updateYear () {
+			rects.style("fill", function(d){
+					// console.log(d["value2012"]);
+					return colourScale(d["" + displayYear + ""]);
+				})
+		}	
 
 }
 
