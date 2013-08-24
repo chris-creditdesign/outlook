@@ -1,13 +1,18 @@
+body {
+    font: 13px/1.231 arial, helvetica, clean, sans-serif;
+}
+
+
 .outer-wrapper {
 
 	height: 1100px;
-	/*position: relative;*/
 }
 
 .outer-wrapper .count-map {
     position: relative;
 	border: 1px solid #C1CACB;
-	height: 398px;
+	width: 940px;
+    height: 630px;
 	cursor: move;
 }
 
