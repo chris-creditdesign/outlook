@@ -1,8 +1,10 @@
 /*	Width and height */
 var width = 940;
-var height = 630;
+var height = 600;
 /*	Global variable to control the length of D3 transitons */
 var duration = 150;
+/*	Global variable to hold data parsed from the csv file */
+var dataset;
 
 
 /*	Define map projection */
@@ -21,61 +23,113 @@ var holder = d3.select(".count-map")
 		.attr("width", width)
 		.attr("height", height)
 
-
-
-
 /* 	Add a group to hold the map and circles */
 var svg = holder.append("g")
 		.attr("transform", "translate(0,0)")
 		.attr("transform", "scale(1)");
 
-/*	Add a green rectangle, the size of the SVG that will sit at the back
-	to give colour to the land and allow the whole area to be draggable
- */
-svg.append("rect")
-		.attr("width", width)
-		.attr("height", height)
-		.style("fill", "#C2CD9D");
+d3.csv('data/gpcp_anomalies_2012.csv', function(d) {
 
-/*	1 - First create the map */
-			   
-/* Load in GeoJSON data */
-/* Not needed right now but an overlay map might be useful for debugging */
-// d3.json("data/oceans.json", makeMap);
+	var thisLong = +d.long;
 
-function makeMap (json) {
-	/* Bind data and create one path per GeoJSON feature */
-	var mapPaths = svg.selectAll("path")
-		.data(json.features)
-		.enter()
-		.append("path")
-		.attr("d", path)
-		.style("fill", "#D5E8F4");
-		/* Load in ranking data and call draw() */
-		
-}
+	if (thisLong > 333 ) {
+		thisLong -= 333;
+	} else {
+		thisLong += 27;
+	}
 
-d3.json('data/ranking-country-global-2.json', draw);
+	return {
+		/* Convert each value from a string to a number */
+		long: thisLong,
+		lat: +d.lat,
+		value: +d.value
+	}
+}, function(error, d) {
 
-/*	2 - Then add the slider and circles */
+	if (error) {
+		console.log(error)
+	} else {
+		/* Once loaded, copy to dataset */
+		dataset = d;
+		draw();
+	}
 
-function draw(data) {
+});
+
+
+
+function draw() {
+
+	var maxLong = d3.max(dataset, function (d) {
+		return d.long;
+	})
+
+	var minLong = d3.min(dataset, function (d) {
+		return d.long;
+	})
+
+	var maxLat = d3.max(dataset, function (d) {
+		return d.lat;
+	})
+
+	var minLat = d3.min(dataset, function (d) {
+		return d.lat
+	})
+
+	console.log("maxLong is: " + maxLong);
+	console.log("minLong is: " + minLong);
+	console.log("maxLat is: " + maxLat);
+	console.log("minLat is: " + minLat);
+
+	/* Define X scale */
+	var xScale = d3.scale.linear()
+		.domain([ minLong, maxLong ])
+		.range([0,width]);
+
+	/* Define Y scale */
+	var yScale = d3.scale.linear()
+		.domain([minLat,maxLat])
+		.range([height, 0]);
+
 
 	/*	Set up circles  */
-	var circles = svg.selectAll("circle")
-				.data(data.year2012, function(d, i) {
-					return d.country;
-				})
+	// var circles = svg.selectAll("circle")
+	// 			.data(dataset)
+	// 			.enter()
+	// 			.append("circle")
+	// 			.attr("cx", function(d) {
+	// 						return xScale(d.long);
+	// 					})
+	// 			.attr("cy", function(d) {
+	// 						return yScale(d.lat);
+	// 					})
+	// 			.attr("r", 2 )
+	// 			.style("opacity", 0.5)
+	// 			.style("fill", "#DD322D")
+	// 			.on("mouseover", function(d,i) {
+	// 				console.log(d.long)
+	// 			});
+
+	var rects = svg.selectAll("rect")
+				.data(dataset)
 				.enter()
-				.append("circle")
-				.attr("cx", function(d) {
-							return projection([d.lon, d.lat])[0];
+				.append("rect")
+				.attr("x", function(d) {
+							return xScale(d.long);
 						})
-				.attr("cy", function(d) {
-							return projection([d.lon, d.lat])[1];
+				.attr("y", function(d) {
+							return yScale(d.lat);
 						})
-				.attr("r", 5 )
-						.style("fill", "#DD322D")
+				.attr("width", function(){
+					return width / maxLong;
+				})
+				.attr("height", function(){
+					return height / -(minLat - maxLat);
+				})
+				.style("fill", "#DD322D")
+				.on("mouseover", function(d,i) {
+					console.log(d.long)
+				});				
 
 }
 
