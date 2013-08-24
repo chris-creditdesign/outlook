@@ -5,6 +5,7 @@ var height = 600;
 var duration = 150;
 /*	Global variable to hold data parsed from the csv file */
 var dataset;
+var allValues = [];
 
 
 /*	Define map projection */
@@ -28,7 +29,7 @@ var svg = holder.append("g")
 		.attr("transform", "translate(0,0)")
 		.attr("transform", "scale(1)");
 
-d3.csv('data/gpcp_anomalies_2012.csv', function(d) {
+d3.csv('data/gpcp_anomalies_1979-2012.csv', function(d) {
 
 	var thisLong = +d.long;
 
@@ -42,7 +43,42 @@ d3.csv('data/gpcp_anomalies_2012.csv', function(d) {
 		/* Convert each value from a string to a number */
 		long: thisLong,
 		lat: +d.lat,
-		value: +d.value
+		value1979: +d.value1979,
+		value1980: +d.value1980,
+		value1981: +d.value1981,
+		value1982: +d.value1982,
+		value1983: +d.value1983,
+		value1984: +d.value1984,
+		value1985: +d.value1985,
+		value1986: +d.value1986,
+		value1987: +d.value1987,
+		value1988: +d.value1988,
+		value1989: +d.value1989,
+		value1990: +d.value1990,
+		value1991: +d.value1991,
+		value1992: +d.value1992,
+		value1993: +d.value1993,
+		value1994: +d.value1994,
+		value1995: +d.value1995,
+		value1996: +d.value1996,
+		value1997: +d.value1997,
+		value1998: +d.value1998,
+		value1999: +d.value1999,
+		value2000: +d.value2000,
+		value2001: +d.value2001,
+		value2002: +d.value2002,
+		value2003: +d.value2003,
+		value2004: +d.value2004,
+		value2005: +d.value2005,
+		value2006: +d.value2006,
+		value2007: +d.value2007,
+		value2008: +d.value2008,
+		value2009: +d.value2009,
+		value2010: +d.value2010,
+		value2011: +d.value2011,
+		value2012: +d.value2012
+
+
 	}
 }, function(error, d) {
 
@@ -76,11 +112,6 @@ function draw() {
 		return d.lat
 	})
 
-	console.log("maxLong is: " + maxLong);
-	console.log("minLong is: " + minLong);
-	console.log("maxLat is: " + maxLat);
-	console.log("minLat is: " + minLat);
-
 	/* Define X scale */
 	var xScale = d3.scale.linear()
 		.domain([ minLong, maxLong ])
@@ -92,23 +123,25 @@ function draw() {
 		.range([height, 0]);
 
 
-	/*	Set up circles  */
-	// var circles = svg.selectAll("circle")
-	// 			.data(dataset)
-	// 			.enter()
-	// 			.append("circle")
-	// 			.attr("cx", function(d) {
-	// 						return xScale(d.long);
-	// 					})
-	// 			.attr("cy", function(d) {
-	// 						return yScale(d.lat);
-	// 					})
-	// 			.attr("r", 2 )
-	// 			.style("opacity", 0.5)
-	// 			.style("fill", "#DD322D")
-	// 			.on("mouseover", function(d,i) {
-	// 				console.log(d.long)
-	// 			});
+	for (var i = 0; i < dataset.length; i++) {
+		for (var key in dataset[i]) {
+			if (key !== "long" && key !== "lat" ) {
+				allValues.push(dataset[i][key]);
+			}		
+		}		
+	};
+
+	var minValue = d3.min(allValues);
+	var maxValue = d3.max(allValues);
+ 
+	console.log("minValue is: " + minValue );
+	console.log("maxValue is: " + maxValue );
+
+	/*	Define colour scale */
+	var colourScale = d3.scale.linear().domain([minValue,maxValue]).range(['red', 'blue']);
+
+
+
 
 	var rects = svg.selectAll("rect")
 				.data(dataset)
@@ -126,9 +159,8 @@ function draw() {
 				.attr("height", function(){
 					return height / -(minLat - maxLat);
 				})
-				.style("fill", "#DD322D")
-				.on("mouseover", function(d,i) {
-					console.log(d.long)
+				.style("fill", function(d){
+					return colourScale(d.value2012);
 				});				
 
 }
