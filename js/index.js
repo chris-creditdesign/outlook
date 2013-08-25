@@ -88,8 +88,6 @@ d3.csv('data/gpcp_anomalies_1979-2012-edit-2.csv', function(d) {
 	} else {
 		/* Once loaded, copy to dataset */
 		dataset = d;
-
-		console.log(dataset);
 		draw();
 	}
 
@@ -166,6 +164,7 @@ function draw() {
 			.data(dataset)
 			.enter()
 			.append("rect")
+			.style("opacity", 0)
 			.attr("x", function(d) {
 						return xScale(d.long);
 					})
@@ -180,27 +179,49 @@ function draw() {
 			})
 			.style("fill", function(d){
 				return colourScale(d["" + displayYear + ""]);
-			});			
+			});
+		
+	rects.transition()
+			.delay(function (d,i) {
+				return i
+			})
+			.style("opacity", 1)
+			.call(endall, function() { 
+				console.log("all done");
+				d3.select(".outer-wrapper .count-map img").style("display","none");
+				createSlider();
+			}); 
 
 	/* Create the first slider for the year values */
-	fdSlider.createSlider({
-		/*	Associate the select list */
-		inp:document.getElementById("selectYear"),
-		/* 	Use the tween animation 'jump'
-			Jump causes the change callback to only be fired once per change
-		*/
-		animation:"jump",
-		/* Keep the form element hidden */
-		hideInput:false,
-		callbacks:{"change":[updateYearSlider]}
-	});	
+	function createSlider() {
+		fdSlider.createSlider({
+			/*	Associate the select list */
+			inp:document.getElementById("selectYear"),
+			/* 	Use the tween animation 'jump'
+				Jump causes the change callback to only be fired once per change
+			*/
+			animation:"jump",
+			/* Keep the form element hidden */
+			hideInput:true,
+			callbacks:{"change":[updateYearSlider]}
+		});
+	}
 
 	function updateYear () {
 			rects.style("fill", function(d){
 					// console.log(d["value2012"]);
 					return colourScale(d["" + displayYear + ""]);
 				})
-		}	
+		}
+
+	function endall(transition, callback) { 
+		var n = 0; 
+		transition 
+			.each(function() { ++n; }) 
+			.each("end", function() { if (!--n) callback.apply(this, arguments); }); 
+		} 
+
+
 
 }
 

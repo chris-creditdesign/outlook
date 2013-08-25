@@ -10,7 +10,7 @@ body {
 
 .outer-wrapper .count-map {
     position: relative;
-	border: 1px solid #C1CACB;
+	/*border: 1px solid #C1CACB;*/
 	width: 940px;
     height: 600px;
 	cursor: move;
@@ -36,8 +36,9 @@ body {
 }
 
 .outer-wrapper select#selectYear {
-	width: 280px;
+	/*width: 940px;*/
 	margin-left: 10px;
+	display: none;
 }
 
 .outer-wrapper .year-label {                     
