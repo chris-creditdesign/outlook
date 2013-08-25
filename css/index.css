@@ -89,65 +89,45 @@ body {
 
 
 /* Key style =========================================================================================== */
-#keyHolder {
+.outer-wrapper #keyHolder {
   position: absolute;
   bottom: 0px;
-  margin: 20px;
-  width: 280px;
-  background-color: #fff;
-  border: 1px solid #666;
-}
-
-.key {
-  position: relative;
-  bottom: 0px;
-  z-index: 1;
-}
-
-
-#audio {
   display: none;
 }
 
-.key .audio-player {
-  margin-left: 10px;
+.outer-wrapper .key {
+  position: relative;
+  bottom: 0px;
+  z-index: 1;
+  line-height: 1.2em;
 }
 
-.key .soloText {
- margin: 4px;
- padding: 10px; 
-}
 
-.key ul {
+.outer-wrapper .key ul, .outer-wrapper .key p {
   margin: 10px;
 }
 
-.key ul li span {
+.outer-wrapper .key ul li span {
   width: 12px;
   height: 12px;
   border: solid 4px;
   float: left;
-  margin: -5px 10px 0 0;
+  margin: -2px 10px 0 0;
 }
 
-.key ul li p {
+.outer-wrapper .key ul li p {
   font: 200 12px/1.5 arial, sans-serif;
-  margin: 0 0 4px 0; 
+  margin: 0; 
 }
 
-.key ul li .header {
-  margin: 0px; 
-}
 
-.key ul li {
+
+.outer-wrapper .key ul li {
   list-style-type: none; 
   overflow: auto;
 }
 
-.key ul li a {
-  color: #000;
-  text-decoration: underline;
-}
+
 
 /* Slider style =========================================================================================== */
 .fd-form-element-hidden
