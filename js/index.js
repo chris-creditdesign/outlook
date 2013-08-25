@@ -179,17 +179,54 @@ function draw() {
 			.style("fill", function(d){
 				return colourScale(d["" + displayYear + ""]);
 			});
-		
+
 	rects.transition()
 			.delay(function (d,i) {
-				return i
+				return i*1.5
 			})
 			.style("opacity", 1)
 			.call(endall, function() { 
 				d3.select(".outer-wrapper .count-map img").style("display","none");
 				d3.select(".outer-wrapper #keyHolder").style("display","block");
 				createSlider();
-			}); 
+			});
+
+	rects.on("mouseover", function (d,i) {
+
+		var x = d3.select(this).attr("x");
+		var y = d3.select(this).attr("y");
+
+		/* Get this rects's x/y values, then augment for the tooltip */
+		var xPosition = parseInt(x) - (parseInt($(".tooltip").css("width"))/2) -10;
+		var yPosition = parseInt(y) - (parseInt($(".tooltip").css("height")) * 2) -8 ;
+
+		/* Update the tooltip position and value */
+		d3.select(".tooltip")
+			.style("left", xPosition + "px")
+			.style("top", yPosition + "px");
+
+		/* Update the tooltip text */
+		d3.select(".tooltip")
+			.select(".value")
+			.html(d["" + displayYear + ""]);
+
+
+		/* Show the tooltip */
+		d3.select(".tooltip")
+			.classed("hidden", false)
+			.transition()
+			.duration(duration/2)
+			.style("opacity", 1);
+
+	}).on("mouseout", function(){
+		d3.select(".tooltip")
+			.transition()
+			.duration(duration/2)
+			.style("opacity", 0)
+			.each("end", function() {
+				d3.select(".tooltip").classed("hidden", true);
+			});
+	})
 
 	/* Create the first slider for the year values */
 	function createSlider() {
@@ -210,7 +247,7 @@ function draw() {
 			rects.style("fill", function(d){
 					return colourScale(d["" + displayYear + ""]);
 				})
-			
+
 			/* Update the key text */
 			d3.select(".outer-wrapper #keyHolder .key p span.this-year").html([displayYear.substr(5)]);
 
