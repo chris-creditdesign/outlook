@@ -30,7 +30,7 @@ var svg = holder.append("g")
 		.attr("transform", "translate(0,0)")
 		.attr("transform", "scale(1)");
 
-d3.csv('data/gpcp_anomalies_1979-2012.csv', function(d) {
+d3.csv('data/gpcp_anomalies_1979-2012-edit-2.csv', function(d) {
 
 	var thisLong = +d.long;
 
@@ -88,27 +88,15 @@ d3.csv('data/gpcp_anomalies_1979-2012.csv', function(d) {
 	} else {
 		/* Once loaded, copy to dataset */
 		dataset = d;
+
+		console.log(dataset);
 		draw();
 	}
 
 });
 
 
-
 function draw() {
-
-	 /* Create the first slider for the year values */
-	fdSlider.createSlider({
-		/*	Associate the select list */
-		inp:document.getElementById("selectYear"),
-		/* 	Use the tween animation 'jump'
-			Jump causes the change callback to only be fired once per change
-		*/
-		animation:"jump",
-		/* Keep the form element hidden */
-		hideInput:false,
-		callbacks:{"change":[updateYearSlider]}
-	});
 
 	/* Event listner for when the user changes the adjust scale checkbox */
 	d3.selectAll("select#selectYear").on("change", function() {
@@ -157,46 +145,55 @@ function draw() {
 		.range([height, 0]);
 
 
-	for (var i = 0; i < dataset.length; i++) {
-		for (var key in dataset[i]) {
-			if (key !== "long" && key !== "lat" ) {
-				allValues.push(dataset[i][key]);
-			}		
-		}		
-	};
+	// for (var i = 0; i < dataset.length; i++) {
+	// 	for (var key in dataset[i]) {
+	// 		if (key !== "long" && key !== "lat" ) {
+	// 			allValues.push(dataset[i][key]);
+	// 		}		
+	// 	}		
+	// };
 
-	var minValue = d3.min(allValues);
-	var maxValue = d3.max(allValues);
+	// var minValue = d3.min(allValues);
+	// var maxValue = d3.max(allValues);
  
-	console.log("minValue is: " + minValue );
-	console.log("maxValue is: " + maxValue );
+	// console.log("minValue is: " + minValue );
+	// console.log("maxValue is: " + maxValue );
 
 	/*	Define colour scale */
 	var colourScale = d3.scale.linear().domain([-2.5, -2, -1.5, -1, -0.5, 0, 0.5, 1, 1.5, 2, 2.5, 3]).range(["#5A3E17", "#8F6823", "#C3AE4A", "#96B247", "#53B264", "#2CB1A0", "#3EC6DC", "#348FCA", "#2E52A5", "#31328C", "#1F1B5A", "#1A2051"]);
 
 	var rects = svg.selectAll("rect")
-				.data(dataset)
-				.enter()
-				.append("rect")
-				.attr("x", function(d) {
-							return xScale(d.long);
-						})
-				.attr("y", function(d) {
-							return yScale(d.lat);
-						})
-				.attr("width", function(){
-					return width / maxLong;
-				})
-				.attr("height", function(){
-					return height / -(minLat - maxLat);
-				})
-				.style("fill", function(d){
-					// console.log(d["value2012"]);
-					return colourScale(d["" + displayYear + ""]);
-				})
-				.on("mouseover", function(d) {
-					console.log(d["" + displayYear + ""]);
-				})
+			.data(dataset)
+			.enter()
+			.append("rect")
+			.attr("x", function(d) {
+						return xScale(d.long);
+					})
+			.attr("y", function(d) {
+						return yScale(d.lat);
+					})
+			.attr("width", function(){
+				return width / maxLong;
+			})
+			.attr("height", function(){
+				return height / -(minLat - maxLat);
+			})
+			.style("fill", function(d){
+				return colourScale(d["" + displayYear + ""]);
+			});			
+
+	/* Create the first slider for the year values */
+	fdSlider.createSlider({
+		/*	Associate the select list */
+		inp:document.getElementById("selectYear"),
+		/* 	Use the tween animation 'jump'
+			Jump causes the change callback to only be fired once per change
+		*/
+		animation:"jump",
+		/* Keep the form element hidden */
+		hideInput:false,
+		callbacks:{"change":[updateYearSlider]}
+	});	
 
 	function updateYear () {
 			rects.style("fill", function(d){
@@ -206,4 +203,7 @@ function draw() {
 		}	
 
 }
+
+
+
 
