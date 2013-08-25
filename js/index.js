@@ -34,10 +34,10 @@ d3.csv('data/gpcp_anomalies_1979-2012-edit-2.csv', function(d) {
 
 	var thisLong = +d.long;
 
-	if (thisLong > 333 ) {
-		thisLong -= 333;
+	if (thisLong > 195 ) {
+		thisLong -= 195;
 	} else {
-		thisLong += 27;
+		thisLong += 165;
 	}
 
 	return {
@@ -142,6 +142,9 @@ function draw() {
 		.domain([minLat,maxLat])
 		.range([height, 0]);
 
+	/* Define the rect height and width */
+	var rectWidth = width / (maxLong - minLong);
+	var rectHeight = height / -(minLat - maxLat);
 
 	// for (var i = 0; i < dataset.length; i++) {
 	// 	for (var key in dataset[i]) {
@@ -171,12 +174,8 @@ function draw() {
 			.attr("y", function(d) {
 						return yScale(d.lat);
 					})
-			.attr("width", function(){
-				return width / maxLong;
-			})
-			.attr("height", function(){
-				return height / -(minLat - maxLat);
-			})
+			.attr("width", rectWidth)
+			.attr("height", rectHeight)
 			.style("fill", function(d){
 				return colourScale(d["" + displayYear + ""]);
 			});
@@ -187,7 +186,6 @@ function draw() {
 			})
 			.style("opacity", 1)
 			.call(endall, function() { 
-				console.log("all done");
 				d3.select(".outer-wrapper .count-map img").style("display","none");
 				createSlider();
 			}); 
@@ -209,7 +207,6 @@ function draw() {
 
 	function updateYear () {
 			rects.style("fill", function(d){
-					// console.log(d["value2012"]);
 					return colourScale(d["" + displayYear + ""]);
 				})
 		}

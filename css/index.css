@@ -27,8 +27,10 @@ body {
 	margin-top: -24px;
 }
 
-.outer-wrapper .count-map svg circle {
-	cursor: pointer; 
+.outer-wrapper .count-map svg rect {
+	cursor: pointer;
+	shape-rendering: crispEdges;
+	stroke: none;
 }
 
 .outer-wrapper .count-map svg text {
@@ -85,7 +87,69 @@ body {
 
 }
 
-/* Slider style */
+
+/* Key style =========================================================================================== */
+#keyHolder {
+  position: absolute;
+  bottom: 0px;
+  margin: 20px;
+  width: 280px;
+  background-color: #fff;
+  border: 1px solid #666;
+}
+
+.key {
+  position: relative;
+  bottom: 0px;
+  z-index: 1;
+}
+
+
+#audio {
+  display: none;
+}
+
+.key .audio-player {
+  margin-left: 10px;
+}
+
+.key .soloText {
+ margin: 4px;
+ padding: 10px; 
+}
+
+.key ul {
+  margin: 10px;
+}
+
+.key ul li span {
+  width: 12px;
+  height: 12px;
+  border: solid 4px;
+  float: left;
+  margin: -5px 10px 0 0;
+}
+
+.key ul li p {
+  font: 200 12px/1.5 arial, sans-serif;
+  margin: 0 0 4px 0; 
+}
+
+.key ul li .header {
+  margin: 0px; 
+}
+
+.key ul li {
+  list-style-type: none; 
+  overflow: auto;
+}
+
+.key ul li a {
+  color: #000;
+  text-decoration: underline;
+}
+
+/* Slider style =========================================================================================== */
 .fd-form-element-hidden
         {
         display:none;
