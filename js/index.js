@@ -9,26 +9,17 @@ var allValues = [];
 var displayYear = "value2012";
 
 
-/*	Define map projection */
-var	projection = d3.geo.mercator()
-		.translate([width/2, height/1.5])
-		.scale([150]);
-
-/*	Define path generator */
-var	path = d3.geo.path()
-		.projection(projection);					
+/* set up canvas, get tallest column height */
+// var canvas = document.getElementById('canvas-map');
+// var ctx = canvas.getContext('2d');	
 
 
-/*	Create SVG element */
-var holder = d3.select(".count-map")
-		.append("svg")
-		.attr("width", width)
-		.attr("height", height)
+var canvas = d3.select(".count-map").append("canvas")
+    .attr("width", width)
+    .attr("height", height);
 
-/* 	Add a group to hold the map and circles */
-var svg = holder.append("g")
-		.attr("transform", "translate(0,0)")
-		.attr("transform", "scale(1)");
+var context = canvas.node().getContext("2d");
+
 
 d3.csv('data/gpcp_anomalies_1979-2012-edit-2.csv', function(d) {
 
@@ -143,90 +134,13 @@ function draw() {
 		.range([height, 0]);
 
 	/* Define the rect height and width */
-	var rectWidth = width / (maxLong - minLong);
-	var rectHeight = height / -(minLat - maxLat);
+	var rectWidth = Math.round(width / (maxLong - minLong)) + 1;
+	var rectHeight = Math.round(height / -(minLat - maxLat)) + 1;
 
-	// for (var i = 0; i < dataset.length; i++) {
-	// 	for (var key in dataset[i]) {
-	// 		if (key !== "long" && key !== "lat" ) {
-	// 			allValues.push(dataset[i][key]);
-	// 		}		
-	// 	}		
-	// };
 
-	// var minValue = d3.min(allValues);
-	// var maxValue = d3.max(allValues);
- 
-	// console.log("minValue is: " + minValue );
-	// console.log("maxValue is: " + maxValue );
 
 	/*	Define colour scale */
 	var colourScale = d3.scale.linear().domain([-3, -2.5, -2, -1.5, -1, -0.5, 0, 0.5, 1, 1.5, 2, 2.5, 3]).range(["#442B0C", "#5A3E17", "#8F6823", "#C3AE4A", "#96B247", "#53B264", "#2CB1A0", "#3EC6DC", "#348FCA", "#2E52A5", "#31328C", "#1F1B5A", "#1A2051"]);
-
-	var rects = svg.selectAll("rect")
-			.data(dataset)
-			.enter()
-			.append("rect")
-			.style("opacity", 0)
-			.attr("x", function(d) {
-						return xScale(d.long);
-					})
-			.attr("y", function(d) {
-						return yScale(d.lat);
-					})
-			.attr("width", rectWidth)
-			.attr("height", rectHeight)
-			.style("fill", function(d){
-				return colourScale(d["" + displayYear + ""]);
-			});
-
-	rects.transition()
-			.delay(function (d,i) {
-				return i*1.5
-			})
-			.style("opacity", 1)
-			.call(endall, function() { 
-				d3.select(".outer-wrapper .count-map img").style("display","none");
-				d3.select(".outer-wrapper #keyHolder").style("display","block");
-				createSlider();
-			});
-
-	rects.on("mouseover", function (d,i) {
-
-		var x = d3.select(this).attr("x");
-		var y = d3.select(this).attr("y");
-
-		/* Get this rects's x/y values, then augment for the tooltip */
-		var xPosition = parseInt(x) - (parseInt($(".tooltip").css("width"))/2) -10;
-		var yPosition = parseInt(y) - (parseInt($(".tooltip").css("height")) * 2) -8 ;
-
-		/* Update the tooltip position and value */
-		d3.select(".tooltip")
-			.style("left", xPosition + "px")
-			.style("top", yPosition + "px");
-
-		/* Update the tooltip text */
-		d3.select(".tooltip")
-			.select(".value")
-			.html(d["" + displayYear + ""]);
-
-
-		/* Show the tooltip */
-		d3.select(".tooltip")
-			.classed("hidden", false)
-			.transition()
-			.duration(duration/2)
-			.style("opacity", 1);
-
-	}).on("mouseout", function(){
-		d3.select(".tooltip")
-			.transition()
-			.duration(duration/2)
-			.style("opacity", 0)
-			.each("end", function() {
-				d3.select(".tooltip").classed("hidden", true);
-			});
-	})
 
 	/* Create the first slider for the year values */
 	function createSlider() {
@@ -244,21 +158,28 @@ function draw() {
 	}
 
 	function updateYear () {
-			rects.style("fill", function(d){
-					return colourScale(d["" + displayYear + ""]);
-				})
-
 			/* Update the key text */
 			d3.select(".outer-wrapper #keyHolder .key p span.this-year").html([displayYear.substr(5)]);
 
+			context.clearRect(0,0,width,height);
+
+			for (var i = 0; i < dataset.length; i++) {
+
+				var posX = xScale(dataset[i].long);
+				var posY = yScale(dataset[i].lat);
+
+
+				context.fillStyle = colourScale(dataset[i]["" + displayYear + ""]);
+				context.fillRect( posX, posY, rectWidth, rectHeight);
+
+			};
+
 		}
 
-	function endall(transition, callback) { 
-		var n = 0; 
-		transition 
-			.each(function() { ++n; }) 
-			.each("end", function() { if (!--n) callback.apply(this, arguments); }); 
-		} 
+	createSlider();
+	updateYear();
+
+
 
 
 
