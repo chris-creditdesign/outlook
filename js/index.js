@@ -1,6 +1,6 @@
 /*	Width and height */
 var width = 940;
-var height = 600;
+var height = 500;
 /*	Global variable to control the length of D3 transitons */
 var duration = 150;
 /*	Global variable to hold data parsed from the csv file */
@@ -210,6 +210,10 @@ function draw() {
 			rects.style("fill", function(d){
 					return colourScale(d["" + displayYear + ""]);
 				})
+			
+			/* Update the key text */
+			d3.select(".outer-wrapper #keyHolder .key p span.this-year").html([displayYear.substr(5)]);
+
 		}
 
 	function endall(transition, callback) { 
