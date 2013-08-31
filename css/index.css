@@ -10,16 +10,10 @@
 
 .outer-wrapper .count-map {
     position: relative;
-	/*border: 1px solid #C1CACB;*/
 	width: 940px;
     height: 500px;
 }
 
-.outer-wrapper canvas#canvas-map {
-	position: relative;
-	width: 940px;
-	height: 500px;
-}
 
 .outer-wrapper .count-map img {
 	width: 48px;
@@ -30,6 +24,15 @@
 	margin-left: -24px;
 	margin-top: -24px;
 }
+
+.outer-wrapper .canvas-map {
+	position: absolute;
+}
+
+.outer-wrapper .svg-map {
+	position: absolute;
+}
+
 
 .outer-wrapper .count-map svg rect {
 	cursor: pointer;
