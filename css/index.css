@@ -1,0 +1,287 @@
+/*body {
+    font: 13px/1.231 arial, helvetica, clean, sans-serif;
+}*/
+
+
+.outer-wrapper {
+
+	height: 1100px;
+}
+
+.outer-wrapper .count-map {
+    position: relative;
+	width: 940px;
+    height: 500px;
+}
+
+
+.outer-wrapper .count-map img {
+	width: 48px;
+	height: 48px;
+	position: absolute;
+	left: 50%;
+	top: 50%; 
+	margin-left: -24px;
+	margin-top: -24px;
+}
+
+.outer-wrapper .canvas-map {
+	position: absolute;
+}
+
+.outer-wrapper .svg-map {
+	position: absolute;
+}
+
+
+.outer-wrapper .count-map svg rect {
+	cursor: pointer;
+	shape-rendering: crispEdges;
+	stroke: none;
+}
+
+
+.outer-wrapper .count-map svg text {
+	pointer-events: none; 
+}
+
+.outer-wrapper select#selectYear {
+	/*width: 940px;*/
+	margin-left: 10px;
+	/*display: none;*/
+}
+
+.outer-wrapper .year-label {                     
+	width:400px;
+	height:15px;
+	margin:20px 0 0 11px;
+	display:block;
+	position:relative;
+	cursor:pointer;        
+	text-decoration:none;
+	border:0 none;
+}
+
+.outer-wrapper .year {
+	width: 66px;
+	height: 20px;
+	float: left;
+	border-left: 1px solid black;
+	padding: 0 0 0 2px;
+}
+
+.outer-wrapper select#selectField {
+	width: 280px;
+	margin-left: 10px;
+}
+
+.outer-wrapper .field-label {                     
+    width:400px;
+    height:30px;
+    margin:20px  0 0 11px;
+    display:block;
+    position:relative;
+    cursor:pointer;        
+    text-decoration:none;
+    border:0 none;
+}
+
+.outer-wrapper .field {
+    width: 66px;
+    height: 35px;
+    float: left;
+    border-left: 1px solid black;
+    padding: 0 0 0 2px;
+
+}
+
+
+/* Key 
+----------------------------------*/
+.outer-wrapper #keyHolder {
+  position: absolute;
+  bottom: 0px;
+  /*display: none;*/
+  pointer-events:none;
+}
+
+.outer-wrapper .key {
+  position: relative;
+  bottom: 0px;
+  z-index: 1;
+  line-height: 1.2em;
+}
+
+
+.outer-wrapper .key ul, .outer-wrapper .key p {
+  margin: 10px;
+}
+
+.outer-wrapper .key ul li span {
+  width: 12px;
+  height: 12px;
+  border: solid 4px;
+  float: left;
+  margin: -2px 10px 0 0;
+}
+
+.outer-wrapper .key ul li p {
+  font: 200 12px/1.5 arial, sans-serif;
+  margin: 0; 
+}
+
+.outer-wrapper .key ul li {
+  list-style-type: none; 
+  overflow: auto;
+}
+
+/* Tooltip
+----------------------------------*/
+.outer-wrapper .count-map .tooltip {
+    position: absolute;
+    padding: 10px;
+    background-color: #333;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 100;
+    max-height: 40px;
+    min-width: 35px;
+    pointer-events: none;
+}
+
+.outer-wrapper .count-map .tooltip:before {
+    content: "";
+    position:absolute;
+    bottom: -10px;
+    left: 40%;
+    border-right: 5px solid transparent;
+    border-top: 10px solid #333;
+    border-bottom: 0;
+    border-left: 5px solid transparent;
+    pointer-events: none;
+}
+
+.outer-wrapper .count-map .tooltip.hidden {
+    display: none;
+}
+
+.outer-wrapper .count-map .tooltip p {
+    margin: 0;
+    color: #ECF0F1;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+}  
+
+/* Slider 
+----------------------------------*/
+
+.outer-wrapper .year-wrapper {
+	/*float: right;*/
+	width: 940px;
+}
+
+.outer-wrapper .year-wrapper .outer-wrapper select {
+	/*display: none;*/
+}
+
+.outer-wrapper .year-wrapper .year-label {                     
+	height:15px;
+	margin:0px 0px 10px;
+	display:block;
+	position:relative;        
+	text-decoration:none;
+	border:0 none;
+}
+
+.outer-wrapper .year-wrapper .year {
+	text-align: center;
+	/*width: 52px;*/
+	float: left;
+	padding: 0 0 0 2px;
+	font-weight: normal;
+	font-size: 110%;
+	color: #666;
+}
+
+.outer-wrapper .year-wrapper .year-slider {                     
+	/*width:220px;*/
+	margin: 0 0 0 24px;
+}
+
+.outer-wrapper .year-wrapper .ui-slider {
+    position: relative;
+    text-align: left;
+    border:0 none;
+}
+
+.outer-wrapper .year-wrapper .ui-slider-handle {
+    position: absolute;
+    z-index: 2;
+    width: 1.2em;
+    height: 1.2em;
+    cursor: pointer;
+}
+
+.outer-wrapper .year-wrapper .ui-slider-range {
+    position: absolute;
+    z-index: 1;
+    font-size: .7em;
+    display: block;
+    border: 0;
+    background-position: 0 0;
+}
+
+.outer-wrapper .year-wrapper .ui-slider-horizontal {
+	background: #ddd;
+    height: .8em;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.outer-wrapper .year-wrapper .ui-slider-handle  {
+	background: #2CB1A0;
+	color: #2CB1A0;
+    top: -.2em;
+    margin-left: -.6em;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+
+.outer-wrapper .year-wrapper a.ui-slider-handle:hover {
+	background: #2CB1A0;
+	color: #2CB1A0;
+	border-bottom: none;
+}
+
+.outer-wrapper .year-wrapper .ui-slider-range {
+    top: 0;
+    height: 100%;
+}
+
+.outer-wrapper .year-wrapper .ui-slider-range-min {
+	background: #3EC6DC;
+    left: 0;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+
+}
+
+.outer-wrapper .year-wrapper .ui-slider-range-max {
+    right: 0;
+}
+
+/* Buttons
+----------------------------------*/
+.outer-wrapper .year-wrapper button.pause {
+	display: none;
+}
+
+
+
+
+
