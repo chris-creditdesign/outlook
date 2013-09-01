@@ -9,7 +9,12 @@ var duration = 150;
 /*	Global variable to hold data parsed from the csv file */
 var dataset;
 var allValues = [];
-var displayYear = "value2012";
+
+var play = null;
+var totalYears = $("select#selectYear option").length;
+var displayYear = $("select#selectYear option:selected").val();
+var counter = $("select#selectYear option:selected").index();
+var interval = 500;
 
 /* set up canvas */
 var canvas = d3.select(".canvas-map").append("canvas")
@@ -149,13 +154,13 @@ function draw() {
 		updateYear();
 	});
 
-	function setSelectedIndex() {
-		document.getElementById("selectYear").options[0].selected = true;
+	function setSelectedIndex(x) {
+		document.getElementById("selectYear").options[x].selected = true;
 		// document.getElementById("selectYear").value = "value1979";
 
 		// $("#selectYear").val("value1979");
 
-		slider.slider( "value", 1 );
+		slider.slider( "value", (x + 1) );
 
 		displayYear = document.getElementById("selectYear").value;
 		/* Redraw the map - taking into account the choice */
@@ -164,29 +169,58 @@ function draw() {
 		return;
 	};
 
-	d3.select("button").on("click", function(e){
-		setSelectedIndex();
+	$("button.play").click(function(e){
+		$("button.play").css({"display":"none"});
+		$("button.pause").css({"display":"block"});
 
+		if ( counter >= (totalYears-2) ) {
+			counter = 0;
+		};
 
+		play = window.setInterval(function () {
+			setSelectedIndex(counter);
+			counter += 1;
+			if (counter >= totalYears ) {
+				$("button.play").css({"display":"block"});
+				$("button.pause").css({"display":"none"});
+				window.clearInterval(play);
+			}
+		}, interval);
+
+		e.preventDefault();
 		return false;
 
 	});
 
+	$("button.pause").click(function () {
+		$("button.play").css({"display":"block"});
+		$("button.pause").css({"display":"none"});
+		window.clearInterval(play);
+	})
+
 
 	var select = $( "#selectYear" );
-	var slider = $( "<div id='slider'></div>" ).insertAfter( select ).slider({
+	var slider = $( "<div id='slider'></div>" ).insertBefore( select ).slider({
 		min: 1,
-		max: 33,
+		max: 34,
 		range: "min",
 		value: select[ 0 ].selectedIndex + 1,
 		slide: function( event, ui ) {
 			select[ 0 ].selectedIndex = ui.value - 1;
 			displayYear = $("select#selectYear").val();
+			counter = $("select#selectYear option:selected").index();
+			$("button.play").css({"display":"block"});
+			$("button.pause").css({"display":"none"});
+			window.clearInterval(play);
 			updateYear();
 		}
 	});
 
 	$( "#selectYear" ).change(function() {
+		counter = $("select#selectYear option:selected").index();
+		$("button.play").css({"display":"block"});
+		$("button.pause").css({"display":"none"});
+		window.clearInterval(play);
 		slider.slider( "value", this.selectedIndex + 1 );
 	});
 
