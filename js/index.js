@@ -331,7 +331,7 @@ function draw() {
 
 	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 		$(".standfirst").text("It's a mobile");
-		$(".outer-wrapper .count-map img").style("display","none");
+		$(".outer-wrapper .count-map img").css({"display":"none"});
 
 	} else {
 		$(".standfirst").text("Not");
