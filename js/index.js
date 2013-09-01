@@ -1,3 +1,6 @@
+/*	==================================================================================== */
+/*	Global variables */
+
 /*	Width and height */
 var width = 940;
 var height = 500;
@@ -8,14 +11,12 @@ var dataset;
 var allValues = [];
 var displayYear = "value2012";
 
-
 /* set up canvas */
 var canvas = d3.select(".canvas-map").append("canvas")
     .attr("width", width)
     .attr("height", height);
 
 var context = canvas.node().getContext("2d");
-
 
 /*	Create SVG element */
 var holder = d3.select(".svg-map")
@@ -29,8 +30,8 @@ var svg = holder.append("g")
 		.attr("transform", "scale(1)");
 
 
-
-
+/*	==================================================================================== */
+/*	Load CSV data */
 
 d3.csv('data/gpcp_anomalies_1979-2012-edit-2.csv', function(d) {
 
@@ -96,26 +97,14 @@ d3.csv('data/gpcp_anomalies_1979-2012-edit-2.csv', function(d) {
 });
 
 
+/*	==================================================================================== */
+/*	draw() function to be called once CSV data loaded */
+
 function draw() {
+
+	/*	==================================================================================== */
+	/*	Variables and scales */
 	
-	/* Event listner for when the user changes the adjust scale checkbox */
-	d3.selectAll("select#selectYear").on("change", function() {
-		console.log(this.value);
-
-		displayYear = this.value;
-
-		/* Redraw the map - taking into account the choice */
-		updateYear();
-	});
-
-
-	/*	Set the display year and call updateYear()
-		When the slider or the select box are changed */
-	function updateYearSlider () {
-		displayYear = this.value;
-		updateYear();
-	};
-
 	var maxLong = d3.max(dataset, function (d) {
 		return d.long;
 	})
@@ -149,20 +138,58 @@ function draw() {
 	/*	Define colour scale */
 	var colourScale = d3.scale.linear().domain([-3, -2.5, -2, -1.5, -1, -0.5, 0, 0.5, 1, 1.5, 2, 2.5, 3]).range(["#442B0C", "#5A3E17", "#8F6823", "#C3AE4A", "#96B247", "#53B264", "#2CB1A0", "#3EC6DC", "#348FCA", "#2E52A5", "#31328C", "#1F1B5A", "#1A2051"]);
 
-	/* Create the first slider for the year values */
-	function createSlider() {
-		fdSlider.createSlider({
-			/*	Associate the select list */
-			inp:document.getElementById("selectYear"),
-			/* 	Use the tween animation 'jump'
-				Jump causes the change callback to only be fired once per change
-			*/
-			animation:"jump",
-			/* Keep the form element hidden */
-			hideInput:true,
-			callbacks:{"change":[updateYearSlider]}
-		});
-	}
+
+	/*	==================================================================================== */
+	/*	Functions and event listeners */
+
+	/* Event listner for when the user changes the adjust scale checkbox */
+	d3.selectAll("select#selectYear").on("change", function() {
+		displayYear = this.value;
+		/* Redraw the map - taking into account the choice */
+		updateYear();
+	});
+
+	function setSelectedIndex() {
+		document.getElementById("selectYear").options[0].selected = true;
+		// document.getElementById("selectYear").value = "value1979";
+
+		// $("#selectYear").val("value1979");
+
+		slider.slider( "value", 1 );
+
+		displayYear = document.getElementById("selectYear").value;
+		/* Redraw the map - taking into account the choice */
+		updateYear();
+
+		return;
+	};
+
+	d3.select("button").on("click", function(e){
+		setSelectedIndex();
+
+
+		return false;
+
+	});
+
+
+	var select = $( "#selectYear" );
+	var slider = $( "<div id='slider'></div>" ).insertAfter( select ).slider({
+		min: 1,
+		max: 33,
+		range: "min",
+		value: select[ 0 ].selectedIndex + 1,
+		slide: function( event, ui ) {
+			select[ 0 ].selectedIndex = ui.value - 1;
+			displayYear = $("select#selectYear").val();
+			updateYear();
+		}
+	});
+
+	$( "#selectYear" ).change(function() {
+		slider.slider( "value", this.selectedIndex + 1 );
+	});
+
 
 	function updateYear () {
 			/* Update the key text */
@@ -181,9 +208,6 @@ function draw() {
 			};
 
 		}
-
-
-
 
 	function createCanvas () {
 
@@ -220,56 +244,61 @@ function draw() {
 				.each(function(d,i) { 
 					if (i === (dataset.length - 1 ) ) {
 						d3.select(".outer-wrapper .count-map img").style("display","none");
-						console.log("svg finished!");
 					}
 				});
 
-			rects.on("mouseover", function (d,i) {
+
+		/* Add tooltip behaviour to each rect */
+		rects.on("mouseover", function (d,i) {
+
+				var x = d3.select(this).attr("x");
+				var y = d3.select(this).attr("y");
+
+				/* Get this rects's x/y values, then augment for the tooltip */
+				var xPosition = parseInt(x) - (parseInt($(".tooltip").css("width"))/2) -10;
+				var yPosition = parseInt(y) - (parseInt($(".tooltip").css("height")) * 2) -8 ;
+
+				/* Update the tooltip position and value */
+				d3.select(".tooltip")
+					.style("left", xPosition + "px")
+					.style("top", yPosition + "px");
+
+				/* Update the tooltip text */
+				d3.select(".tooltip")
+					.select(".value")
+					.html(d["" + displayYear + ""]);
 
 
-					var x = d3.select(this).attr("x");
-					var y = d3.select(this).attr("y");
+				/* Show the tooltip */
+				d3.select(".tooltip")
+					.classed("hidden", false)
+					.transition()
+					.duration(duration/2)
+					.style("opacity", 1);
 
-					/* Get this rects's x/y values, then augment for the tooltip */
-					var xPosition = parseInt(x) - (parseInt($(".tooltip").css("width"))/2) -10;
-					var yPosition = parseInt(y) - (parseInt($(".tooltip").css("height")) * 2) -8 ;
-
-					/* Update the tooltip position and value */
-					d3.select(".tooltip")
-						.style("left", xPosition + "px")
-						.style("top", yPosition + "px");
-
-					/* Update the tooltip text */
-					d3.select(".tooltip")
-						.select(".value")
-						.html(d["" + displayYear + ""]);
+			}).on("mouseout", function(){
+				d3.select(".tooltip")
+					.transition()
+					.duration(duration/2)
+					.style("opacity", 0)
+					.each("end", function() {
+						d3.select(".tooltip").classed("hidden", true);
+					});
+			})
+	}
 
 
-					/* Show the tooltip */
-					d3.select(".tooltip")
-						.classed("hidden", false)
-						.transition()
-						.duration(duration/2)
-						.style("opacity", 1);
 
-				}).on("mouseout", function(){
-					d3.select(".tooltip")
-						.transition()
-						.duration(duration/2)
-						.style("opacity", 0)
-						.each("end", function() {
-							d3.select(".tooltip").classed("hidden", true);
-						});
-				})
-		}
 
-		createCanvas();
-		createSlider();
+	/*	==================================================================================== */
+	/*	Call to action */
 
-		window.setTimeout(function() {
-			console.log("building that svg now");
-				createSvg();
-		}, 500);
+	createCanvas();
+	// createSlider();
+
+	window.setTimeout(function() {
+			createSvg();
+	}, 500);
 
 
 }
