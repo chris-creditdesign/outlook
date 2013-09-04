@@ -329,12 +329,14 @@ function draw() {
 
 	createCanvas();
 
-	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-		$(".standfirst").text("It's a mobile");
-		$(".outer-wrapper .count-map img").css({"display":"none"});
 
+	/* Only load the svg if we think we're not on a touch screen */
+	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+		/* 	Hide the preloader */
+		$(".outer-wrapper .count-map img").css({"display":"none"});
 	} else {
-		$(".standfirst").text("Not");
+		/* 	Load the svg after a delay to ensure the canvas map fills the stage
+			first and the user is not left looking at a blank screen */
 		window.setTimeout(function() {
 				createSvg();
 		}, 500);
