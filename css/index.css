@@ -1,11 +1,12 @@
-/*body {
-    font: 13px/1.231 arial, helvetica, clean, sans-serif;
-}*/
-
+.status-message {
+  border: 1px solid #c00;
+  background: #fac7c7;
+  padding: 10px;
+}
 
 .outer-wrapper {
-
 	height: 1100px;
+  display: none;
 }
 
 .outer-wrapper .count-map {

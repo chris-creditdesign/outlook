@@ -107,6 +107,11 @@ d3.csv('data/gpcp_anomalies_1979-2012-edit-2.csv', function(d) {
 
 function draw() {
 
+	/*	We know that javascript is enabled and that we are not in IE 6-8
+		so hide the error message and show outer-wrapper */
+	$(".outer-wrapper").css({"display":"block"});
+	$(".status-message").css({"display":"none"});
+	
 	/*	==================================================================================== */
 	/*	Variables and scales */
 	
