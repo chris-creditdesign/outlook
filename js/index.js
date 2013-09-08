@@ -2,83 +2,110 @@
 	    var init = function($)	
 	    {
 
-	    $.getScript("js/jquery-ui-1.10.3.custom.min.js");
-
-	    // $.getScript("js/d3.v3.min.js", loadData() );
-
-/*	==================================================================================== */
-/*	Global variables */
-
 /*	Global variable to hold data parsed from the csv file */
 var dataset;
 
+/*	==================================================================================== */
+/*	Load jQuery UI and D3 */
+
+$.getScript("js/jquery-ui-1.10.3.custom.min.js", checkUI());
+
+function checkUI () {
+
+	setTimeout(function()
+	{
+	if (typeof jQuery.ui !== 'undefined')
+	{
+		$.getScript("js/d3.v3.min.js", checkD3() );
+	} else
+	{
+		setTimeout(arguments.callee, 60);
+	}
+	}, 60);
+};
+
+function checkD3 () {
+
+	setTimeout(function()
+	{
+	if (typeof d3 !== 'undefined')
+	{
+		loadData();
+	} else
+	{
+		setTimeout(arguments.callee, 60);
+	}
+	}, 60);
+};
 
 /*	==================================================================================== */
 /*	Load CSV data */
 
-d3.csv('data/gpcp_anomalies_1979-2012-edit-2.csv', function(d) {
+function loadData () {
 
-	var thisLong = +d.long;
+	d3.csv('data/gpcp_anomalies_1979-2012-edit-2.csv', function(d) {
 
-	if (thisLong > 195 ) {
-		thisLong -= 195;
-	} else {
-		thisLong += 165;
-	}
+		var thisLong = +d.long;
 
-	return {
-		/* Convert each value from a string to a number */
-		long: thisLong,
-		lat: +d.lat,
-		value1979: +d.value1979,
-		value1980: +d.value1980,
-		value1981: +d.value1981,
-		value1982: +d.value1982,
-		value1983: +d.value1983,
-		value1984: +d.value1984,
-		value1985: +d.value1985,
-		value1986: +d.value1986,
-		value1987: +d.value1987,
-		value1988: +d.value1988,
-		value1989: +d.value1989,
-		value1990: +d.value1990,
-		value1991: +d.value1991,
-		value1992: +d.value1992,
-		value1993: +d.value1993,
-		value1994: +d.value1994,
-		value1995: +d.value1995,
-		value1996: +d.value1996,
-		value1997: +d.value1997,
-		value1998: +d.value1998,
-		value1999: +d.value1999,
-		value2000: +d.value2000,
-		value2001: +d.value2001,
-		value2002: +d.value2002,
-		value2003: +d.value2003,
-		value2004: +d.value2004,
-		value2005: +d.value2005,
-		value2006: +d.value2006,
-		value2007: +d.value2007,
-		value2008: +d.value2008,
-		value2009: +d.value2009,
-		value2010: +d.value2010,
-		value2011: +d.value2011,
-		value2012: +d.value2012
+		if (thisLong > 195 ) {
+			thisLong -= 195;
+		} else {
+			thisLong += 165;
+		}
+
+		return {
+			/* Convert each value from a string to a number */
+			long: thisLong,
+			lat: +d.lat,
+			value1979: +d.value1979,
+			value1980: +d.value1980,
+			value1981: +d.value1981,
+			value1982: +d.value1982,
+			value1983: +d.value1983,
+			value1984: +d.value1984,
+			value1985: +d.value1985,
+			value1986: +d.value1986,
+			value1987: +d.value1987,
+			value1988: +d.value1988,
+			value1989: +d.value1989,
+			value1990: +d.value1990,
+			value1991: +d.value1991,
+			value1992: +d.value1992,
+			value1993: +d.value1993,
+			value1994: +d.value1994,
+			value1995: +d.value1995,
+			value1996: +d.value1996,
+			value1997: +d.value1997,
+			value1998: +d.value1998,
+			value1999: +d.value1999,
+			value2000: +d.value2000,
+			value2001: +d.value2001,
+			value2002: +d.value2002,
+			value2003: +d.value2003,
+			value2004: +d.value2004,
+			value2005: +d.value2005,
+			value2006: +d.value2006,
+			value2007: +d.value2007,
+			value2008: +d.value2008,
+			value2009: +d.value2009,
+			value2010: +d.value2010,
+			value2011: +d.value2011,
+			value2012: +d.value2012
 
 
-	}
-}, function(error, d) {
+		}
+	}, function(error, d) {
 
-	if (error) {
-		console.log(error)
-	} else {
-		/* Once loaded, copy to dataset */
-		dataset = d;
-		draw();		
-	}
+		if (error) {
+			console.log(error)
+		} else {
+			/* Once loaded, copy to dataset */
+			dataset = d;
+			draw();		
+		}
 
-});
-
+	});
+}
 
 /*	==================================================================================== */
 /*	draw() function to be called once CSV data loaded */
