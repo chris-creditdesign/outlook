@@ -11,7 +11,7 @@
 
 .outer-wrapper .count-map {
     position: relative;
-	width: 940px;
+	width: 958px;
     height: 500px;
 }
 
@@ -138,26 +138,28 @@
 ----------------------------------*/
 
 .outer-wrapper .year-wrapper select#selectYear {
-	/*width: 940px;*/
-	margin-left: 10px;
+	width: 830px;
+	float: right;
+	margin: 0 48px 0 0;
 	/*display: none;*/
 }
 
 /* Year labels
 ----------------------------------*/
 
-/*.outer-wrapper .year-label {                     
-	width:400px;
-	height:15px;
-	margin:20px 0 0 11px;
+.outer-wrapper .year-label { 
+	width: 918px;                   
+	float: left;
+	/*height:15px;*/
+	margin:10px 0 0 40px;
 	display:block;
-	position:relative;
-	cursor:pointer;        
+	/*position:relative;*/
+	/*cursor:pointer;        */
 	text-decoration:none;
 	border:0 none;
 }
 
-.outer-wrapper .year {
+/*.outer-wrapper .year {
 	width: 66px;
 	height: 20px;
 	float: left;
@@ -174,15 +176,14 @@
 	border:0 none;
 }*/
 
-/*.outer-wrapper .year-wrapper .year {
+.outer-wrapper .year-wrapper .year {
 	text-align: center;
-	width: 52px;
+	width: 126px;
 	float: left;
-	padding: 0 0 0 2px;
 	font-weight: normal;
 	font-size: 110%;
 	color: #666;
-}*/
+}
 
 
 
@@ -219,10 +220,13 @@
 
 .outer-wrapper .year-wrapper .ui-slider-horizontal {
 	background: #ddd;
-    height: .8em;
+  height: .8em;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
+  width: 830px;
+  float: right;
+  margin: 0 48px 10px 0;
 }
 
 .outer-wrapper .year-wrapper .ui-slider-handle  {
@@ -262,7 +266,27 @@
 /* Buttons
 ----------------------------------*/
 .outer-wrapper .year-wrapper button {
-  display: block;
+	display: block;
+	width: 50px;
+	height: 45px;
+	margin: 0px 0 0 10px;
+	float: left;
+	background-color: #3EC6DC;
+	cursor: pointer;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+	    -ms-user-select: none;
+	     -o-user-select: none;
+	        user-select: none;
+}
+
+.outer-wrapper .year-wrapper button:hover,
+.outer-wrapper .year-wrapper button:focus,
+.outer-wrapper .year-wrapper button:active {
+  background-color: #2CB1A0;  
+  border-color: #2CB1A0;  
 }
 
 .outer-wrapper .year-wrapper button.pause {

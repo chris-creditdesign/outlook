@@ -73,9 +73,8 @@ d3.csv('data/gpcp_anomalies_1979-2012-edit-2.csv', function(d) {
 		console.log(error)
 	} else {
 		/* Once loaded, copy to dataset */
-		console.log(d);
 		dataset = d;
-			draw();		
+		draw();		
 	}
 
 });
@@ -95,10 +94,10 @@ function draw() {
 	/*	Variables and scales */
 
 	/*	Width and height */
-	var width = 940;
+	var width = 958;
 	var height = 500;
 	/*	Global variable to control the length of D3 transitons */
-	var duration = 150;
+	var duration = 100;
 
 	var allValues = [];
 
