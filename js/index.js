@@ -117,6 +117,43 @@ function draw() {
 	$(".outer-wrapper").css({"display":"block"});
 	$(".status-message").css({"display":"none"});
 
+
+	/*	Create the SVG and its elements */
+	var playSvg = d3.select("button.play")
+					.append("svg")
+					.attr("width", 50 )
+					.attr("height", 45 )
+				  .append("path")
+					.attr("d", "M11.166,23.963L22.359,17.5c1.43-0.824,1.43-2.175,0-3L11.166,8.037c-1.429-0.826-2.598-0.15-2.598,1.5v12.926C8.568,24.113,9.737,24.789,11.166,23.963z")
+					.style("pointer-events","none")
+					.style("fill", "#ffffff")
+					.attr("transform", "translate(5,2), scale(1.25)");
+
+
+	var pauseSvg = d3.select("button.pause")
+					.append("svg")
+					.attr("width", 50 )
+					.attr("height", 45 );
+
+	pauseSvg.append("rect")
+		.attr("width", 8)
+		.attr("height", 23)
+		.attr("x", 12)
+		.attr("y", 10)
+		.style("pointer-events","none")
+		.style("fill", "#ffffff")
+
+
+	pauseSvg.append("rect")
+		.attr("width", 8)
+		.attr("height", 23)
+		.attr("x", 28)
+		.attr("y", 10)
+		.style("pointer-events","none")
+		.style("fill", "#ffffff")
+
+
+
 	/*	==================================================================================== */
 	/*	Variables and scales */
 
