@@ -12,3 +12,22 @@ http://developer.yahoo.net/yui/license.txt
 version: 2.7.0
 */
 body{font:13px/1.231 arial,helvetica,clean,sans-serif;*font-size:small;*font:x-small;}select,input,button,textarea,button{font:99% arial,helvetica,clean,sans-serif;}table{font-size:inherit;font:100%;}pre,code,kbd,samp,tt{font-family:monospace;*font-size:108%;line-height:100%;}
+
+/**
+ * HTML5 defaults
+*/
+article,section,header,footer,hgroup,nav,aside,figure{display: block;}
+input[type="search"] {
+	-webkit-appearance: textfield;
+	-moz-appearance: textfield;
+	-o-appearance: textfield;
+}
+
+/*
+Start of a HTML5 reset now that modern browsers are starting to apply CSS to the new elements
+Born from [VIEW-2434]
+*/
+figure {
+    margin: 0;
+    padding: 0;
+}

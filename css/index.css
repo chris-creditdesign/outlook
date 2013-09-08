@@ -46,63 +46,13 @@
 	pointer-events: none; 
 }
 
-.outer-wrapper select#selectYear {
-	/*width: 940px;*/
-	margin-left: 10px;
-	/*display: none;*/
-}
-
-.outer-wrapper .year-label {                     
-	width:400px;
-	height:15px;
-	margin:20px 0 0 11px;
-	display:block;
-	position:relative;
-	cursor:pointer;        
-	text-decoration:none;
-	border:0 none;
-}
-
-.outer-wrapper .year {
-	width: 66px;
-	height: 20px;
-	float: left;
-	border-left: 1px solid black;
-	padding: 0 0 0 2px;
-}
-
-.outer-wrapper select#selectField {
-	width: 280px;
-	margin-left: 10px;
-}
-
-.outer-wrapper .field-label {                     
-    width:400px;
-    height:30px;
-    margin:20px  0 0 11px;
-    display:block;
-    position:relative;
-    cursor:pointer;        
-    text-decoration:none;
-    border:0 none;
-}
-
-.outer-wrapper .field {
-    width: 66px;
-    height: 35px;
-    float: left;
-    border-left: 1px solid black;
-    padding: 0 0 0 2px;
-
-}
-
 
 /* Key 
 ----------------------------------*/
-.outer-wrapper #keyHolder {
+.outer-wrapper .key-holder {
   position: absolute;
   bottom: 0px;
-  /*display: none;*/
+  display: none;
   pointer-events:none;
 }
 
@@ -173,38 +123,71 @@
     font-size: 16px;
     line-height: 20px;
     text-align: center;
-}  
+} 
 
-/* Slider 
+/* Year wrapper
 ----------------------------------*/
 
 .outer-wrapper .year-wrapper {
 	/*float: right;*/
-	width: 940px;
+	/*width: 940px;*/
 }
 
-.outer-wrapper .year-wrapper .outer-wrapper select {
+
+/* Year dropdown menu
+----------------------------------*/
+
+.outer-wrapper .year-wrapper select#selectYear {
+	/*width: 940px;*/
+	margin-left: 10px;
 	/*display: none;*/
 }
 
-.outer-wrapper .year-wrapper .year-label {                     
+/* Year labels
+----------------------------------*/
+
+/*.outer-wrapper .year-label {                     
+	width:400px;
+	height:15px;
+	margin:20px 0 0 11px;
+	display:block;
+	position:relative;
+	cursor:pointer;        
+	text-decoration:none;
+	border:0 none;
+}
+
+.outer-wrapper .year {
+	width: 66px;
+	height: 20px;
+	float: left;
+	border-left: 1px solid black;
+	padding: 0 0 0 2px;
+}*/
+
+/*.outer-wrapper .year-wrapper .year-label {                     
 	height:15px;
 	margin:0px 0px 10px;
 	display:block;
 	position:relative;        
 	text-decoration:none;
 	border:0 none;
-}
+}*/
 
-.outer-wrapper .year-wrapper .year {
+/*.outer-wrapper .year-wrapper .year {
 	text-align: center;
-	/*width: 52px;*/
+	width: 52px;
 	float: left;
 	padding: 0 0 0 2px;
 	font-weight: normal;
 	font-size: 110%;
 	color: #666;
-}
+}*/
+
+
+
+/* Slider 
+----------------------------------*/
 
 .outer-wrapper .year-wrapper .year-slider {                     
 	/*width:220px;*/
@@ -278,6 +261,10 @@
 
 /* Buttons
 ----------------------------------*/
+.outer-wrapper .year-wrapper button {
+  display: block;
+}
+
 .outer-wrapper .year-wrapper button.pause {
 	display: none;
 }

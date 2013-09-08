@@ -1,0 +1,233 @@
+    html.js-enabled div.collapsed .content {
+	display: block;
+	}
+
+	* {
+		background: transparent none !important;
+	}
+
+	div.article-tools,
+	#quick-nav,
+	#podcast-player,
+	.section-nav,
+	.figure-nav *,
+	.search-form,
+	.prev-next-article,
+	.breadcrumbs,
+	#leaderboard,
+	.global-nav,
+	#header,
+	#comment-form,
+	#comment-preview,
+	#comments h2,
+	#comments p.comment-notice,
+	.ad,
+	ul.footer-links,
+	#extranav .box-footer,
+	ol.comments p.moderation,
+	ol.references ul,
+	#author-links,
+	.figure .resources,
+	.box-element .resources,
+	div.figures-at-a-glance,
+	#highlighting-tool {
+		display: none;
+	}
+
+	body div .toggle a,
+	#footer p.copyright,
+	#comments ol.comments dl,
+	#comments ol.comments p.datetime {
+		padding-left: 0 !important;
+	}
+	#constrain-content {
+		padding: 0;
+	}
+	#constrain-content #content {
+		float: none;
+		width: 100%;
+		padding: 0 !important;
+		margin: 0;
+	}
+	body.ie8 #constrain-content #content {
+		max-width: none;
+	}
+	div.section div.content {
+		max-width: none;
+	}
+	#extranav {
+		display: none;
+		width: 0;
+	}
+	.table .item-content {
+		display: none;
+	}
+
+	a {
+		border: 0 !important;
+		color: #444 !important;
+	}
+
+	div.box-element span.legend,
+	div.figure span.legend {
+		page-break-after: avoid;
+	}
+	div.figure img,
+	div.box-element img {
+		page-break-inside: avoid;
+	}
+
+	/* Article Metrics Print styles */
+	#am-container {
+		font-size: 83%;
+	}
+
+	.citation-summary li .citation-wrapper {
+		border: 1px solid #ccc !important;
+		margin-top: 20px;
+	}
+	.am-cols .am-col,
+	.am-col2 {
+		width: 100%;
+	}
+	.am-cols .am-col {
+		display: block;
+		page-break-after: always;
+		break-after: always;
+		margin-bottom: 180px;
+	}
+	#am-container .am-cols .am-col2 {
+		display: block;
+		page-break-before: always;
+		margin-top: 10px;
+	}
+	.ie7 #am-container .am-cols .am-col2  {
+		margin-top: 120px;
+	}
+	.am-col .sharing-container {
+		width: 100%;
+		max-width: 100%;
+		page-break-after: always;
+	}
+	.sharing-metrics li {
+		width: 48%;
+		margin-right: 8px;
+	}
+	#am-container .am-col .metrics-module {
+    	width: 100%;
+    	margin: 0;
+    }
+    #am-container .am-col #online-media-metrics {
+    	width: 100%;
+    	margin: 0;
+    }
+    body.ie7 #am-container .am-col #online-media-metrics h2 {
+    	margin-bottom: 20px;
+    	display: block;
+    	page-break-before: always;
+    }
+    body.ie7 #am-container .am-col h2 {
+    	display: block;
+    	text-align: left;
+    	padding-left: 0 !important;
+    	margin-left: 0 !important;
+    	margin-bottom: 20px !important;
+    }
+    body.ie7 h1 span.desc {
+    	display: block;
+    	margin-bottom: 20px;
+    	overflow: auto;
+    }
+
+    body.ie7 #am-container .am-col ul {
+     	margin-left: 10px;
+    }
+    body.ie7 #am-container .am-col #online-media-metrics,
+    body.ie8 #am-container .am-col #online-media-metrics {
+    	display: block;
+    	margin-top: 1px;
+    	page-break-before: always;
+    }
+
+ 	.twitter-demographics-container  #map-canvas,
+ 	.twitter-demographics-container  table.twitter-demographic-table {
+   		float: none;
+   		margin: 0;
+    }
+    .twitter-demographics-container table.twitter-demographic-table {
+    	width: 95%;
+    	margin: 10px;
+    }
+   	.twitter-demographics-container table.twitter-demographic-table tr {
+   		border-top: 1px solid #ccc;
+   	}
+   	.twitter-demographics-container table.twitter-demographic-table thead tr {
+   		border: 0 none;
+   	}
+    #am-container .am-module .citation-summary {
+		margin-left: 0;
+	}
+	.jvectormap-zoomin,
+	.jvectormap-zoomout {
+		display: none;
+	}
+	#am-container #online-media-metrics .tab-content {
+		display: block;
+		margin-bottom: 0;
+		height: 200px;
+		min-height: 200px;
+		border: 0 none;
+		border-top: 1px solid #ccc;
+	}
+	#am-container #online-media-metrics .media-citations {
+		margin-left: 0;
+	}
+
+	#am-container h3.tab {
+		width: 100% !important;
+		display: inline !important;
+		position: relative !important;
+		left: 0 !important;
+	}
+	#am-container .media-citations:after {
+		content: " (4 most recent)";
+	}
+
+	#am-container #online-media-metrics a.all-news {
+		display: none  !important;
+	}
+	#am-container .online-media-container {
+		margin-top: 20px;
+	}
+	#am-container .sharing-container {
+		page-break-after: always;
+	}
+	#am-container .pageview-metrics-container {
+		page-break-before: always;
+	}
+
+	#am-container .am-module.terms-container {
+		page-break-before: always;
+		page-break-after: always;
+	}
+	body.ie7 #am-container .am-module.terms-container h2 {
+		page-break-before: always;
+	}
+	#am-container .metric-terms li {
+		font-size: 85%;
+		padding-top: 0;
+		min-height: 200px;
+	}
+	#am-container .metric-terms {
+		height: auto;
+	}
+	#am-container .metrics-header {
+		width: 100%;
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+
+	#am-container .graph-placeholder {
+		border: none;
+		display: none;
+	}

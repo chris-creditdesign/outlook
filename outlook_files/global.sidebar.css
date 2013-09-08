@@ -1,0 +1,917 @@
+/*
+ *
+ *
+ *		global.sidebar.css
+ *
+ *		Site-wide styles for sidebar modules
+ *
+ *		@scope: 	Included on all AIP pages
+ *
+ *		@history: 	created from styles cropped out of global.article.css and global.page.css - goo.gl/YMhDF
+ *
+ *
+ */
+
+/* Spacing all sidebar modules */
+#extranav div.module,
+#extranav div.ad {
+	margin: 0 0 20px!important;
+}
+#extranav .module-bidi h2 {
+	font-size: 116%;
+	font-weight: normal;
+	color: #777;
+	border-bottom: 1px solid #DDD;
+	padding: 0 0 3px;
+	margin:0;
+}
+.module-bidi li {
+	border-top:3px double #DDD;
+	margin: 0 0 8px;
+	padding: 8px 0 0;
+}
+.module-bidi li.first {
+	border-top:0;
+}
+.module-bidi p.continue {
+	text-align: right;
+}
+#extranav .module-bidi h3 {
+	margin:0;
+}
+#extranav .module-bidi h3 span {
+	display: block;
+	font-size:93%;
+	margin:0;
+}
+/*
+ *
+ *    Generic Box Styles
+ *
+ */
+
+#extranav div.box {
+    border: 1px solid #E7E7E7;
+    margin: 0;
+    padding: 9px;
+}
+#extranav div.box-padding {
+    padding: 9px;
+}
+#extranav div.no-padding {
+    padding: 0;
+}
+
+#extranav div.box h2,
+#extranav div.tab-box h2,
+#extranav div.box h3,
+#extranav div.tab-box h3,
+#extranav div.box h4,
+#extranav div.tab-box h4,
+#extranav div.box h5,
+#extranav div.tab-box h5,
+#extranav div.box p,
+#extranav div.tab-box p,
+#extranav div.box ol,
+#extranav div.tab-box ol,
+#extranav div.box ul,
+#extranav div.tab-box ul,
+#extranav div.box dl,
+#extranav div.tab-box dl, 
+#extranav div.box .by-line {
+    margin: 0;
+}
+
+#extranav div.box ol,
+#extranav div.tab-box ol {
+	list-style-position: outside;
+	padding: 0;
+}
+#extranav div.box ol li,
+#extranav div.tab-box ol li {
+	list-style: none outside none;
+	margin: 0;
+}
+#extranav div.box li,
+#extranav div.tab-box li  {
+	padding: 5px 0;
+}
+#extranav div.box li li,
+#extranav div.tab-box li li {
+	padding: 0;
+}
+#extranav div.box ol.article-list li div.standard-teaser,
+#extranav div.tab-box ol.article-list li div.standard-teaser  {
+	display: inline-block;
+	vertical-align: top;
+}
+
+#extranav .box-footer {
+	/*background: #fff url(/view/images/bg_light_grad.gif) repeat-x 0 0;*/
+	background: #fff repeat-x 0 0;
+	margin: 0;
+	padding: 2px 9px;
+	text-align: right;
+	border: 0 none;
+}
+
+#extranav div.box .box-footer {
+    border: 0;
+    border-top: 1px solid #C8C7CF;
+}
+#extranav ul.box-footer li {
+	float: left;
+	padding: 0;
+}
+#extranav ul.box-footer li.last {
+	float: right;
+}
+
+/*
+ * 
+ *    End Generic Box Styles
+ *
+ */
+
+
+
+/* Ad styles */
+#extranav div.ad img,
+#extranav div.ad object,
+#extranav div.ad embed,
+#extranav div.ad iframe {
+	display: block;
+	margin: 0 auto;
+}
+#extranav div.wide-skyscraper {
+	background: #f1f2f6;
+	text-align: center;
+	padding: 10px 0;
+	border: 1px solid #e7e7e7;
+}
+/* @ not sure this stuff belongs in here, wtf is .content?! */
+div.content div.ad {
+	float: right;
+	clear: right;
+	margin: 10px 0 10px 10px;
+}
+div.content div.ad a {
+	border-bottom: 0 none;
+}
+
+
+
+/*
+ * 
+ *    Generic Tabbed Modules
+ *
+ */
+ 
+/* Overall heading for the group */
+#extranav h2.tab-group-heading {
+	padding: 9px;
+}
+html.js-enabled #extranav h2.tab-group-heading {
+	padding: 0;
+}
+
+html.js-enabled #extranav div.tab-group {
+	position: relative;
+}
+
+#extranav div.tab-box {
+    background: none;
+    border: 0;
+    padding: 0;
+}
+
+/* Individual tab headings */
+#extranav div.tab-box h3.tab {
+	padding: 9px 9px 0;
+}
+html.js-enabled #extranav div.tab-box h3.tab {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	z-index: 1;
+}
+html.js-enabled #extranav div.first h3.tab {
+	margin: 0;
+}
+html.js-enabled #extranav div.tab-box h3.tab a {
+	background: #5E5E5E;
+	border-bottom: 1px solid #e7e7e7;
+	color: #fff;
+	display: block;
+	font-weight: normal;
+	margin: 0;
+	padding: 5px;
+	overflow: hidden;
+	text-align: center;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+	
+}
+html.js-enabled #extranav #related-content-box div.tab-box h3.tab a,
+html.js-enabled #extranav #top-content div.tab-box h3.tab a {
+	padding: 7px 0 0 10px;
+}
+
+html.js-enabled #extranav  div.tab-box.active h3.solotab a:hover,
+html.js-enabled #extranav  div.tab-box.active h3.solotab a {
+	text-align: left;
+	padding: 7px 0 0 7px;
+}
+html.js-enabled #extranav div.active h3.tab a,
+html.js-enabled #extranav div.tab-box h3.tab a:hover {
+	background: #fff;
+	border: 1px solid #e7e7e7;
+	color: #5E5E5E;
+	cursor: pointer;
+	padding: 5px 3px 5px;
+	text-decoration: none;
+}
+html.js-enabled #extranav div.tab-box h3.tab a:hover {
+	cursor: pointer;
+}
+html.js-enabled #extranav div.active h3.tab a:hover {
+	cursor: default;
+}
+
+html.js-enabled #extranav div.active h3.tab a,
+html.js-enabled #extranav div.active h3.tab a:hover {
+    border-bottom: 0;
+	cursor: default;
+	padding-bottom: 5px;
+}
+
+/* Tab content areas (on or off) */
+html.js-enabled #extranav div.tab-content div.box-padding {
+	/*padding-top: 0;*/
+	overflow: auto;
+}
+#extranav #related-top-content div.tab-content div.box-padding {
+	border-top: 1px solid #e7e7e7;
+}
+html.js-enabled #extranav div.tab-group div.tab-box div.tab-content {
+	border: 1px solid #e7e7e7;
+	display: none;
+}
+html.js-enabled #extranav div.tab-group div.active div.tab-content {
+	display: block;
+}
+
+
+/* Tab bar - a purely aesthetic drawing div to add 1px under any missing tab spaces */
+html.js-enabled div.tab-group div.tab-bar {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	background: #fff;
+	margin: 0;
+	padding: 0;
+	border: 0 none;
+	border-bottom: 1px solid #e7e7e7;
+}
+
+/*
+ *
+ *    End Generic Tabbed Modules
+ *
+ */
+
+/* featured events/jobs boxes only appear to be used by ncomms at this stage - more styling may be necessary before use elsewhere */
+#featured-events-box h2 .type,
+#featured-jobs-box h2 .type {
+    display: block;
+}
+#extranav #featured-events-box p strong,
+#extranav #featured-jobs-box p strong {
+    display: block;
+}
+#extranav #featured-events-box .box-footer {
+    text-align: left;
+}
+#extranav #featured-events-box .box-footer .site {
+	color: #444;
+	display: block;
+}
+
+
+/* Article list styles for Top Content module*/
+#extranav #top-content .standard-teaser h1 {
+	font-weight: bold;
+}
+#extranav #top-content li span.journal-title {
+	padding: 0 5px 0 0;
+}
+#extranav #top-content li span.time,
+#extranav #related-top-content li span.time {
+	padding: 0 0 0 7px;
+	/*background: url(/view/images/bg_pipe.gif) no-repeat 0 0.4ex;*/
+}
+
+
+
+/* From v2 ui
+
+========================================================================================================================================================================
+
+*/
+
+#extranav h1,
+#extranav h2 {
+	color: #696969;
+	font-weight: bold;
+	margin-bottom: 3px;
+}
+#extranav h1.primary-heading,
+#extranav h2.primary-heading {
+	font-weight: normal;
+}
+
+
+
+
+/* From v1 main
+
+========================================================================================================================================================================
+
+*/
+
+
+#protocols-related-research,
+#nature-jobs-box,
+#nature-events-box,
+#open-innovation-box,
+#sponsors-box,
+#links-box,
+#special-feature-box,
+#citations-box,
+#related-content-box {
+	/*background: #fff url(/view/images/bg_box_grad.gif) repeat-x 0 0*/
+	background: #fff repeat-x 0 0
+}
+
+#nature-events-box h2,
+#nature-jobs-box h2,
+#related-content-box h2 {
+	padding: 9px 9px 0;
+}
+
+#protocols-related-research span.journal-title {
+	padding: 0 5px 0 0;
+}
+
+#protocols-related-research span.time {
+	/*background: url(/view/images/bg_pipe.gif) no-repeat 0 0.4ex;*/
+	padding: 0 0 0 7px;
+}
+
+/*
+ * 
+ *    Open Innovation Module
+ *
+ */
+
+#extranav #open-innovation-box {
+ 	color: #636363;
+ 	background: #b3d4ea;
+ 	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.17, #B3D4EA),color-stop(0.42, #B3D4EA),color-stop(0.78, #59A7D4));
+	background-image: -webkit-linear-gradient(bottom, #B3D4EA 17%, #B3D4EA 42%, #59A7D4 78%);
+	background-image: -moz-linear-gradient(bottom, #B3D4EA 17%, #B3D4EA 42%, #59A7D4 78%);
+	background-image: -ms-linear-gradient(bottom, #B3D4EA 17%, #B3D4EA 42%, #59A7D4 78%);
+	background-image: -o-linear-gradient(bottom, #B3D4EA 17%, #B3D4EA 42%, #59A7D4 78%);
+	background-image: linear-gradient(bottom, #B3D4EA 17%, #B3D4EA 42%, #59A7D4 78%);
+}
+
+#extranav #open-innovation-box h2 {
+	text-indent: -3000px;
+	direction: ltr;
+	border: 0 none;
+	padding: 0;
+	min-height: 40px;
+	min-width: 200px;
+	/*background: url(/view/images/open-inno-logo.png) no-repeat left 10px;*/
+}
+#extranav #open-innovation-box .box-padding {
+	padding: 0 9px 9px;
+	/*background-image: url(/view/images/open-inno-bg.png);*/
+	background-repeat: no-repeat;
+	background-position: right 1%;
+}
+#extranav #open-innovation-box h2 a {
+	color: #069
+	
+}
+#extranav #open-innovation-box .box-footer {
+	background: none;
+	border-top: 0 none;
+	margin-top: -8px;
+}
+
+#extranav #open-innovation-box .box-footer a {
+	background: none;
+}
+#extranav #open-innovation-box .innocentive-logo {
+	margin-top: 5px;
+}
+#extranav #open-innovation-box .box-footer .right-arrow  a {
+	/*background: url(/view/rj/images/blue-arrow-right.png) no-repeat 100% 50%; */
+}
+#extranav  ul.challenge-list li {
+	background-color: #e8f2f9;
+	opacity: 0.85;
+	margin-top: 10px;
+	padding: 10px;
+}
+
+#extranav #open-innovation-box ul.challenge-list img {
+	margin: 5px 5px 0 0;
+	width: 25px;
+	height: 25px;
+	float: left;
+}
+#extranav #open-innovation-box ul.challenge-list dl {
+	float: left;
+}
+#extranav #open-innovation-box dt {
+	float: left;
+	clear: left;
+	padding: 0 0.3em 0 0;
+}
+#extranav #open-innovation-box dd {
+	float: left;
+	clear: right;
+}
+body.ie6 #extranav #open-innovation-box dd {
+	float: none;
+}
+#extranav #open-innovation-box dd.reward {
+	font-weight: bold;
+}
+#extranav #open-innovation-box ul.challenge-list h3 {
+	font-weight: bold;
+}
+#extranav #open-innovation-box ul.challenge-list p {
+	clear: both;
+}
+
+li.powered {
+	position: relative;
+	font-size: 91%;
+	width: 160px;
+	text-align: left;
+}
+li.powered a {
+	display: inline;
+
+}
+li.powered img {
+	position: absolute;
+	left: 65px;
+	top: -2px;
+}
+
+#inside-article li.powered {
+	font-style: italic;
+}
+#inside-article-antibodies li.powered a {
+	display: block;
+}
+
+
+#sponsors-box {
+	padding:10px 10px 0;
+}
+
+#sponsors-box li {
+	margin-bottom:10px;
+	text-align:center;
+}
+#links-box a {
+	display:block;
+}
+
+#extranav .toggle,
+#extranav div.player h2 {
+	margin-bottom: 0;
+}
+div.player div.box {
+	margin-top: 0;
+}
+body.ie6 div.player div.box {
+	position: relative;
+}
+div.player h3 {
+	padding: 3px 5px;
+	/*background: #b3b8be url(/view/images/bg_dark_grad.gif) repeat-x 0 0;*/
+	color: #fff;
+}
+div.player div.description {
+	padding: 9px;
+}
+div.player a.video-link {
+	display: block;
+	border: 0 none!important;
+	font-weight: bold;
+}
+div.player object {
+	margin: 0 auto;
+	display: block;
+}
+#extranav div.player a:hover {
+	text-decoration: underline;
+}
+#extranav p.podcast-time {
+	margin: 9px 0 !important;
+}
+
+
+/* VIDEO PLAYER START */
+div.video-content {
+    margin: 0 10px 10px 0;
+}
+
+div.video-content.sidebar-video {
+	max-width: 278px;
+
+}
+div.full-snippet div.video-content .video-player {
+	height: 230px;
+}
+
+
+.in-page-video div.video-information {
+	float: left;
+	display: block;
+	clear: both;
+	max-width: 280px;
+}
+
+#extranav div.video-content {
+	float: none;
+	margin: 20px 0;
+	overflow: visible;
+}
+
+#extranavdiv.video-information {
+	float: left;
+	margin-top: 10px;
+}
+
+div.video-content object {
+	float: left;
+}
+
+.video-content-top .video-content .video-player {
+    float:left;
+}
+div.video-content h2 {
+	clear: both;
+	color: #111;
+	display: inline-block;
+	margin: 0;
+	padding: 5px 0;
+}
+
+#extranav div.video-content object {
+	float: none;
+}
+
+#extranav div.video-content p,
+div.video-content p {
+    clear: both;
+    margin: 0;
+    display: inline-block;
+}
+
+.video-content-top .video-content {
+    margin:20px 0;
+    padding:0;
+    width: 100%;
+}
+.top-video {
+	width: 100%;
+	overflow: auto;
+}
+
+.video-content-top .video-content h2 {
+    clear:none;
+    color:#fff;
+    margin:10px 0;
+}
+
+.video-content-top .video-content p {
+    color:#fff;
+    clear:none;
+}
+
+.video-content-top .video-information {
+	padding-right: 10px;
+    padding-left: 10px;
+    display: block;
+	float: left;
+	max-width: 280px;
+}
+
+body.ie7 .video-content-top .video-information {
+	max-width: 260px;
+}
+
+/* VIDEO PLAYER END */
+
+
+/*
+ *
+ *	Summary Module
+ *
+ */
+
+#extranav .summary-item  {
+	margin: 0 0 5px 0;
+}
+#extranav .summary-item a {
+	font-weight: normal;
+}
+
+html.js-enabled #extranav #summary-box div.full-snippet {
+	display: none;
+	overflow: hidden;
+}
+html.js-enabled #extranav #summary-box #sidebar-video div.full-snippet {
+	display: block;
+	visibility: hidden;
+	height: 0;
+}
+
+html.js-enabled #extranav #summary-box .summary-item:first-child {
+	border-top: 0 none;
+}
+
+body.ie6 #extranav #summary-box div.box {
+	zoom: 1;
+}
+
+/* @ poss move this stuff and make it generic */
+#extranav #summary-box a.toggle-bar,
+.box-element a.toggle-bar {
+	display: block;
+	/*background: #f1f1f6 url(/view/images/arrow_down.gif) no-repeat 50% 50%;*/
+	padding: 2px 0;
+	margin: 0 0 6px;
+	text-align: center;
+	border:0;
+}
+#extranav #summary-box a.toggle-bar:hover,
+.box-element a.toggle-bar:hover {
+	/*background-image: url(/view/images/arrow_down_dark.gif);*/
+	text-decoration: none;
+	border: 0;
+}
+#extranav a.toggle-bar span {
+	visibility: hidden;
+}
+#extranav #summary-box a.collapse,
+.box-element a.collapse {
+	/*background-image: url(/view/images/arrow_up.gif);*/
+}
+#extranav #summary-box a.collapse:hover,
+.box-element a.collapse:hover {
+	/*background-image: url(/view/images/arrow_up_dark.gif);*/
+}
+
+#extranav h2.video-label {
+	/*background: url(/view/images/v2/audio_video_icon.png) no-repeat top left;*/
+	padding:  0 0 0 24px;
+}
+#extranav h2.audio-label {
+	/*background: url(/view/images/v2/audio_video_icon.png) no-repeat top left;*/
+	padding:  0 0 0 24px;
+	background-position: 0 -24px;
+}
+#extranav .bi-di-item,
+#extranav #sidebar-video {
+	margin: 10px 0 0 0;
+	border-top: 1px solid #ccc;
+	padding: 10px 0 0 0;
+}
+#extranav #summary-box	.editors-summary p,
+#extranav #summary-box	.media-item  p {
+	margin: 5px 0;
+}
+
+#extranav #summary-box .summary-item:first-child {
+	border-top: 0 none;
+	margin-top: 0;
+	padding-top: 0;
+}
+#extranav #summary-box .category {
+	font-size: 93%;
+	color: #696969;
+	padding:0;
+	display: block;
+}
+#extranav .bi-di-item a {
+	font-weight: normal;
+}
+#extranav .bi-di-item .author {
+	color: #696969;
+	font-size: 93%;
+}
+
+#extranav #summary-box .author {
+	display: block;
+	color: #333;
+}
+
+
+#extranav #sidebar-video {
+	margin: 10px 0 0 0;
+	padding: 10px 0 0 0;
+}
+
+/* @ que?! */
+
+.box-internal a.toggle-bar span {
+	visibility: visible;
+	padding-right:80px;
+}
+
+/*
+ *
+ *    End Edsumm Module
+ *
+ */
+
+/*
+ *    News and views Module
+ */
+
+#news-and-views-box h3 {
+	font-weight: normal;
+}
+
+#extranav #news-and-views-box p {
+	margin: 3px 0 6px;
+}
+#extranav #news-and-views-box p.continue {
+	margin: 0 0 12px;
+	text-align: right;
+	font-style: italic;
+}
+/*
+ *    End news and views Module
+ */
+
+/* Combined jobs & events module start */
+#nature-jobs-events-box {
+	margin-bottom: 20px;
+}
+#extranav #nature-jobs-events-box .jobs-list,
+#extranav #nature-jobs-events-box .events-list  {
+	overflow: auto;
+	display: block;
+	margin-bottom: 10px;
+
+}
+body.ie7 #extranav #nature-jobs-events-box .jobs-list,
+body.ie7 #extranav #nature-jobs-events-box .events-list {
+	width: 275px;
+}
+
+#nature-jobs-events-box .jobs-list li,
+#nature-jobs-events-box .events-list li {
+	border-bottom: solid 1px #d5dee4;
+	margin: 8px 0;
+	padding-bottom: 8px;
+}
+
+#extranav #nature-jobs-events-box .jobs-list ul li {
+	border: 0;
+	margin: 0;
+	padding: 0;
+
+}
+#extranav #nature-jobs-events-box .action-links {
+	margin: 0;
+	position: absolute;
+	bottom: 0;
+	right: 8px;
+
+}
+#extranav #nature-jobs-events-box .action-links li {
+	float: left;
+	overflow: hidden;
+	margin: 0 0 0 6px;
+}
+#extranav #nature-jobs-events-box .action-links li a {
+	/*background: url(/view/images/grey-arrow-right.png) no-repeat 100% 50%;*/
+	padding-right: 12px;
+}
+#extranav #nature-jobs-events-box .action-links li.first a {
+	border-right: 1px solid #006699;
+	/*background: url(/view/images/grey-arrow-right.png) no-repeat 97% 50%;*/
+	padding-right: 17px;
+}
+html.js-enabled #extranav div#nature-jobs-events-box div.first {
+	/*background: #E6F6FF url(/view/images/bg_jobs_events.png) no-repeat -10px -26px;*/
+	border: 0;
+}
+html.js-enabled#extranav #nature-jobs-events-box .tab-content {
+	min-height: 242px;
+	
+}
+html.js-enabled #extranav #nature-jobs-events-box .tab-inner {
+	padding: 8px;
+}
+html.js-enabled #extranav #nature-jobs-events-box .nature-science-jobs .box-footer {
+	/*background: transparent url(/view/images/bg_jobs_events.png) repeat-x  -10px 5px;*/
+	height: 20px;
+	border: 0 none;
+}
+
+html.js-enabled #extranav #nature-jobs-events-box  .nature-science-events .box-footer {
+	background: none;
+}
+
+html.js-enabled #extranav #nature-science-jobs.active h3.tab a, 
+html.js-enabled #extranav #nature-science-jobs.tab-box h3.tab a:hover {
+	background: #e6f6ff;
+}
+#extranav #nature-science-jobs.active li h3,
+#extranav #nature-science-jobs.active li h3 a {
+	background-color: transparent;
+	display: inline;
+}
+#extranav #nature-jobs-events-box h4 {
+	display: block;
+	text-indent: -3000px;
+	direction: ltr;
+	height: 26px;
+	margin: 15px 0 0 0;
+}
+body.ie7 #extranav #nature-jobs-events-box h4 {
+	margin-top: 35px;
+
+}
+#extranav #nature-jobs-events-box .nature-science-events h4 {
+	/*background: url(/view/images/nature-events-logo.png) no-repeat top left;*/
+	
+}
+
+#extranav #nature-jobs-events-box .nature-science-jobs h4 {
+	/*background: url(/view/images/nature-jobs-logo.png) no-repeat  top left;*/
+}
+
+/* these are now used everywhere */
+div.illustration {
+	margin: 0; 
+	padding: 10px; 
+	width: auto; 
+	zoom: 1; /* oh, IE :( */
+}
+#extranav div.illustration {
+	padding: 0 0 5px 0;
+}
+#extranav #special-feature-box .feature-list li {
+	float: none;
+}
+#extranav #special-feature-box .feature-a img,
+#extranav #special-feature-box .feature-b img {
+	float: none;
+}
+div.illustration div,
+div.infographic div {
+	background: #f5f6f7;
+}
+div.illustration div.box,
+div.infographic div.box {
+	margin: 0;
+	padding: 0;
+}
+div.illustration img,
+div.infographic img {
+	display: block;
+	width: 100% !important;
+	height: auto !important;
+}
+div.illustration div.description p {
+	color:#666;
+	font-size: 85%;
+	line-height: 1.5em;
+	margin: 10px 0;
+	padding: 0 10px;
+}
+div.illustration p.credit,
+div.infographic p.credit {
+	color:#909090;
+	font-size: 75%;
+	font-style: italic;
+	line-height: 1.4em;
+	text-align:right;
+	margin: 5px 0 5px 0;
+	padding: 0 10px;
+}

@@ -1,38 +1,16 @@
+(function() {
+	    var init = function($)	
+	    {
+
+	    $.getScript("js/jquery-ui-1.10.3.custom.min.js");
+
+	    // $.getScript("js/d3.v3.min.js", loadData() );
+
 /*	==================================================================================== */
 /*	Global variables */
 
-/*	Width and height */
-var width = 940;
-var height = 500;
-/*	Global variable to control the length of D3 transitons */
-var duration = 150;
 /*	Global variable to hold data parsed from the csv file */
 var dataset;
-var allValues = [];
-
-var play = null;
-var totalYears = $("select#selectYear option").length;
-var displayYear = $("select#selectYear option:selected").val();
-var counter = $("select#selectYear option:selected").index();
-var interval = 500;
-
-/* set up canvas */
-var canvas = d3.select(".canvas-map").append("canvas")
-    .attr("width", width)
-    .attr("height", height);
-
-var context = canvas.node().getContext("2d");
-
-/*	Create SVG element */
-var holder = d3.select(".svg-map")
-		.append("svg")
-		.attr("width", width)
-		.attr("height", height)
-
-/* 	Add a group to hold the map and circles */
-var svg = holder.append("g")
-		.attr("transform", "translate(0,0)")
-		.attr("transform", "scale(1)");
 
 
 /*	==================================================================================== */
@@ -95,8 +73,9 @@ d3.csv('data/gpcp_anomalies_1979-2012-edit-2.csv', function(d) {
 		console.log(error)
 	} else {
 		/* Once loaded, copy to dataset */
+		console.log(d);
 		dataset = d;
-		draw();
+			draw();		
 	}
 
 });
@@ -111,9 +90,42 @@ function draw() {
 		so hide the error message and show outer-wrapper */
 	$(".outer-wrapper").css({"display":"block"});
 	$(".status-message").css({"display":"none"});
-	
+
 	/*	==================================================================================== */
 	/*	Variables and scales */
+
+	/*	Width and height */
+	var width = 940;
+	var height = 500;
+	/*	Global variable to control the length of D3 transitons */
+	var duration = 150;
+
+	var allValues = [];
+
+	var play = null;
+	var totalYears = $("select#selectYear option").length;
+	var displayYear = $("select#selectYear option:selected").val();
+	var counter = $("select#selectYear option:selected").index();
+	var interval = 500;
+
+	/* set up canvas */
+	var canvas = d3.select(".canvas-map").append("canvas")
+	    .attr("width", width)
+	    .attr("height", height);
+
+	var context = canvas.node().getContext("2d");
+
+	/*	Create SVG element */
+	var holder = d3.select(".svg-map")
+			.append("svg")
+			.attr("width", width)
+			.attr("height", height)
+
+	/* 	Add a group to hold the map and circles */
+	var svg = holder.append("g")
+			.attr("transform", "translate(0,0)")
+			.attr("transform", "scale(1)");
+
 	
 	var maxLong = d3.max(dataset, function (d) {
 		return d.long;
@@ -232,7 +244,7 @@ function draw() {
 
 	function updateYear () {
 			/* Update the key text */
-			d3.select(".outer-wrapper #keyHolder .key p span.this-year").html([displayYear.substr(5)]);
+			d3.select(".outer-wrapper .key-holder .key p span.this-year").html([displayYear.substr(5)]);
 
 			context.clearRect(0,0,width,height);
 
@@ -283,6 +295,7 @@ function draw() {
 				.each(function(d,i) { 
 					if (i === (dataset.length - 1 ) ) {
 						d3.select(".outer-wrapper .count-map img").style("display","none");
+						$(".key-holder").css({"display":"block"});
 					}
 				});
 
@@ -339,6 +352,7 @@ function draw() {
 	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 		/* 	Hide the preloader */
 		$(".outer-wrapper .count-map img").css({"display":"none"});
+		$(".key-holder").css({"display":"block"});
 	} else {
 		/* 	Load the svg after a delay to ensure the canvas map fills the stage
 			first and the user is not left looking at a blank screen */
@@ -349,6 +363,24 @@ function draw() {
 	}
 
 }
+
+/*	==================================================================================== */
+/*	End of active code */
+
+		};
+
+	setTimeout(function()
+	{
+	if (typeof jQuery !== 'undefined')
+	{
+		init(jQuery);
+	} else
+	{
+		setTimeout(arguments.callee, 60);
+	}
+	}, 60);
+
+})();
 
 
 

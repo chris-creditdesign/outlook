@@ -1,0 +1,1802 @@
+/*
+JS-written content
+*/
+#js-menu {
+	display: none;
+}
+#constrain-header div div p.access a {
+	padding:0;
+	text-decoration: none;
+	cursor: pointer;
+	font-weight: normal;
+	background: none;
+}
+#constrain-header div div p.access a i {
+	display:none;
+}
+#header a {
+	font-weight: normal;
+}
+#constrain-header ul.user-services a {
+	font-weight: bold;
+}
+/*
+****
+* Tablet break point
+* First break point for tablets, mainly used to change layout of header v1
+****
+*/
+
+@media only screen and (max-width: 970px) {
+	body #constrain-header div.wrapper ul.user-services {
+		right:0;
+		margin-bottom: 0;
+		width:auto;
+	}
+	body #leaderboard  ul.user-services {
+		position: absolute;
+		top:102px;
+	}
+	body #leaderboard ul.user-services li {
+		float: left;
+		background: transparent;
+		border: 0 none;
+	}
+	body #leaderboard ul.user-services li a,
+	body #leaderboard ul.user-services li a:visited {
+		color: #fff;
+	}
+	body #leaderboard ul.user-services li a {
+		display: block;
+		padding: 0 10px;
+	}
+	body #constrain-header div.wrapper ul.user-services li a {
+		/*background: url(./outlook_files/bg_register_list.png) no-repeat 0 100%;*/
+	}
+	body #constrain-header div.wrapper ul.user-services li a:hover {
+		/*background: url(./outlook_files/bg_register_list_hover.png) no-repeat 0 100%;*/
+	}
+	body #header .logon {
+		position:relative;
+		top:20px;
+	}
+	#am-container .am-col {
+    	width: 100%;
+   		float: none;
+		padding: 0;
+    }
+	#am-container .am-col2 {
+		padding: 10px 0 0;
+   		float: none;
+   		margin: 0;
+		width: 100%;
+		clear: both;
+	}
+	#am-container .am-col .am-module {
+    	float: left;
+		max-width:100%;
+	}
+	#am-container .citation-summary {
+		margin-left: 28%;
+		margin-right: auto;
+	}
+
+	.am-col .citations-container {
+    	margin-right: 2%;
+    }
+	#online-media-metrics {
+    	width: 100%;
+    }
+ 	.twitter-demographics-container #map-canvas,
+ 	.twitter-demographics-container  table.twitter-demographic-table {
+   		width: 100%;
+   		float: none;
+   		margin: 15px 0 0 0;
+    }
+
+    #am-container .metric-terms li {
+		min-height: 280px;
+	}
+
+	/* related page style */
+	.related-content #figure-tabs .tab-content {
+		padding-top: 0 !important;
+		margin-top: -10px;
+	}
+	
+	.related-content #figure-tabs .item-content {
+		border: 1px solid #e1e1e1;
+		padding: 5px;
+	}
+
+	.related-content .disclaimer-mobile {
+		display: block;
+	}
+
+	#video-container div.video-information {
+		padding-top: 10px;
+	}
+
+	 /* This must be display block in all mobile styles as it is used to monitor mobile css for WT */
+	#mobile-css-test {
+		display: block;
+	}
+
+	.video-wrapper {
+		padding-right:0;
+	}
+	#video-container .video-player {
+		float: none;
+		margin: 0 0 40px;
+	}
+	#video-container div.video-information {
+		padding: 0;
+		float: none;
+		margin-right: 0;
+		width: auto;
+	}
+	#video-container .article-tools {
+		margin: 0;
+	}
+
+	.small-nav.menu-active {
+		display: none;
+	}
+	#header div.logon p.access {
+		font-size: 85%;
+	}
+
+
+
+}
+
+/*
+****
+* Tablet break point
+* Second break point for tablets, can be used for ipad in portrait
+****
+*/
+
+@media only screen and (max-width: 768px) {
+
+	body {
+		width: 100%;
+		overflow-x: hidden;
+	}
+
+	#content {
+		width: 100%;
+		margin: 0;
+	}
+
+	body #constrain {
+		overflow-x: hidden;
+	}
+
+	#leaderboard-ad,
+	#top-ads .leaderboard {
+		padding: 0;
+	}
+
+	#archive div.tab-box {
+		width: 100%;
+	}
+
+	#archive div.tab-box .inner-content {
+		width: 95%;
+	}
+
+	.js-enabled #wrapper {
+		margin: 0 auto;
+	}
+
+	#footer-search {
+		border-left: none 0;
+		float: left;
+		clear: both;
+		margin: 20px 10px 0 0 ;
+	}
+
+	#footer-search label {
+		display: none;
+	}
+	
+	#news-comment .column-first {
+		width: 410px;
+	}
+
+	.lead-teaser {
+		padding-right: 0;
+	}
+
+	.lead-teaser h1 a {
+		display: block;
+		margin-left: 160px;
+		height: 110px;
+	}
+
+	.lead-teaser.media-right div.media {
+		top: 0;
+		left: 0;
+		margin-top: 0;
+	}
+
+	.lead-teaser div.media {
+		border: none;
+		width: 150px;
+	}
+
+	.lead-teaser img {
+	    width: 150px;
+	}
+
+	.lead-teaser div.media p {
+		position: relative;
+		width: 400px;
+		margin-top: 5px;
+		text-align: left;
+		background: transparent;
+	}
+
+	div.bookmarking-popup,
+	div.delivery-popup {
+		width: 150px !important;
+	}
+
+    #top-ads .leaderboard {
+        max-width: 100%;
+        height: auto;
+    }
+
+    #top-ads {
+        height: auto;
+        min-height: 0;
+    }
+
+    img,
+	object,
+	embed {
+        max-width: 100%;
+    }
+
+    /* related page styles */
+
+
+    #video-container object,
+    #video-container video {
+    	height: 100% !important;
+    }
+    
+    #video-container  div.video-information {
+    	padding-top: 10px;
+    }
+
+    #extranav {
+        width: 100%;
+        float: left;
+        margin: 0;
+        padding: 0;
+    }
+
+    #extranav .box,
+	#extranav #submit-box,
+	#extranav .current-issue-box {
+    	margin: 0 0 10px;
+    }
+
+    #extranav #submit-box {
+    	margin: 0	;
+    }
+
+    #extranav section#top-articles-box {
+    	float: left;
+    }
+
+    #header {
+        min-height: 120px;
+        background-repeat: no-repeat;
+    }
+    #am-container .altmetric-donut {
+		width: 48%;
+		float: left;
+		margin: 0;
+	}
+	#am-container .altmetric-key {
+		width: 48%;
+		float: right;
+		margin: 0;
+	}
+	#am-container .altmetric-context {
+		margin-left: 0;
+	 }
+	#am-container .metric-terms li {
+		min-height: 360px;
+	}
+	#am-container .citation-metrics .citation-summary {
+		width: 55%;
+	}
+	.twitter-demographics-container .jvectormap-zoomin,
+	.twitter-demographics-container .jvectormap-zoomout {
+		left: 5px;
+	}
+	.pageview-metrics-container, 
+	.citations-container {
+		max-width: 100%;
+	}
+
+	html.js-enabled .highlight-popup,
+	html.js-enabled  .compound-popup {
+		max-width: 93% !important;
+		margin-left: 3px !important;
+	}
+
+	.small-nav.menu-active {
+		display: none;
+	}
+
+     /* This must be display block in all mobile styles as it is used to monitor mobile css for WT */
+    #mobile-css-test {
+		display: block;
+	}
+
+	.logon .access {
+		right:0;
+		top: 30px;
+	}
+	#constrain-header div div p.access a.show span i,
+	#constrain-header div div p.access a.no-touch:hover span i,
+	#constrain-header div div p.access a span {
+		display:none;
+	}
+	#constrain-header div div p.access a span i,
+	#constrain-header div div p.access a.show span,
+	#constrain-header div div p.access a span:first-child,
+	#constrain-header div div p.access a.no-touch:hover span {
+		display:inline;
+	}
+}
+
+@media only screen and (max-width: 640px) {
+
+	#header .header-tabs li a {
+		font-size: 85%;
+	}
+
+	.small-nav.menu-active {
+		display: none;
+	}
+
+
+	 /* This must be display block in all mobile styles as it is used to monitor mobile css for WT */
+	#mobile-css-test {
+		display: block;
+	}
+	
+}
+
+/*
+****
+* Mobile break point
+* Mobile break point, trying to target as many different devices as possible
+****
+*/
+
+@media screen and (max-width : 480px),
+        screen and (-webkit-device-pixel-ratio : 2) and (max-width : 640px) and (orientation : landscape),
+        screen and (-webkit-device-pixel-ratio : 2) and (max-width : 360px) and (orientation : portrait),
+        screen and (-webkit-device-pixel-ratio : 1.5) and (max-width : 640px) and (orientation : landscape),
+        screen and (-o-device-pixel-ratio : 3/2) and (max-width : 640px) and (orientation : landscape) {
+
+	/*
+	****
+	* Page Structure
+	* Used to set up the page layout, and generic items like carousels
+	****
+	*/
+
+	/* Remove survey banner */
+
+	.global-message-contain {
+		display: none;
+	}
+
+	body {
+		margin: auto;
+		min-width: 0;
+		max-width: none;
+		width: auto;
+		-webkit-text-size-adjust: none;
+		-ms-text-size-adjust: none;
+		background: #333;
+		background: -webkit-gradient(linear, 0 0, 0 310, from(#202020), to(#CBCBCB));
+		background: -webkit-linear-gradient(top, #202020, #CBCBCB 310px);
+		background: -moz-linear-gradient(top, #202020, #CBCBCB 310px);
+		background: -ms-linear-gradient(top, #202020, #CBCBCB 310px);
+		background: -o-linear-gradient(top, #202020, #CBCBCB 310px);
+		background: linear-gradient(to bottom, #202020, #CBCBCB 310px);
+		color: #222;
+	}
+
+	/* Must have !important as some images have inline widths and heights */
+	img,
+	object,
+	embed {
+		max-width: 100% !important;
+		height: auto !important;
+	}
+
+	.ad.mobile,
+	#extranav .ad.mobile {
+		background: #FFF;
+		padding: 10px 0 3px 0;
+		width: 100%;
+		height: 50px;
+		float: left;
+		clear: both;
+		text-align: center;
+		position: static;
+		margin: 0 auto !important;
+	}
+
+	#extranav .ad.mobile {
+		width: 300px;
+		margin: 0 auto 10px !important;
+	}
+
+	#header h1.block-anchor {
+		margin:0;
+		width:53%;
+	}
+	#header h1.block-anchor a {
+		height: 50px;
+	}
+	
+	body div.col {
+		float: none;
+	}
+
+	body .constrain {
+	    width:auto;
+	}
+
+	body #constrain {
+        min-width:90%;
+        overflow:hidden;
+		padding:0;
+    }
+
+	body #constrain-content {
+		padding: 20px 10px 10px;
+		border-width: 0;
+	}
+
+	#content .content-block-double {
+	    width:100%;
+	    margin-right:0;
+	}
+
+	body #extranav {
+		margin: 20px 0 0;
+		padding: 0;
+		width:auto;
+		float: left;
+	}
+
+	body #content {
+	    width: auto;
+	    border: 0;
+	    clear: both;
+	    margin-right: 0;
+	    padding-right: 0;
+	}
+
+	.content-block-double .column-splitter.double-columns .column-first,
+	.content-block-double .column-splitter.double-columns .column-second {
+		width: 100%;
+	}
+
+	#content .content-block-full,
+	#content .content-block-double,
+	#content .content-block-single  {
+		margin-bottom: 0;
+		width: 100%;
+	}
+
+	.content-block-full {
+		width: 100%;
+		margin-bottom: 10px;
+	}
+
+	.section {
+		margin: 0 0 5px;
+	}
+
+	.dynamic {
+		width: 100%;
+	}
+
+	.inner-content {
+		padding: 20px 0 0;
+		position: relative;
+		clear: both;
+	}
+
+	.inner {
+		width: 100%;
+	}
+
+	#content-wrapper {
+		padding: 10px 0 0;
+	}
+
+	.related-carousel {
+		display: none;
+	}
+
+	div.ad.mobile {
+		display: block;
+	}
+
+	#extranav div.ad {
+		float: left;
+	}
+
+	.media-left {
+		width: 100%;
+		padding: 0 0 10px 0 !important;
+		border-bottom: 1px solid #B7B7B7;
+	}
+
+	.media-left .media {
+		float: left;
+		width: 100% !important;
+		margin: 10px 0 10px 0;
+		position: relative;
+	}
+
+	body #header div.logon p.user-actions a.cart {
+		/*background-image: url(./outlook_files/shop_cart.png);*/
+	}
+
+	/*
+	****
+	* Page Headings
+	* Standard typography headings used through out the templates and some standard links
+	****
+	*/
+
+	.primary-heading {
+		margin-top: 0;
+	}
+
+	.list-header .secondary-heading span {
+		display: block;
+	}
+
+	.list-header .secondary-heading {
+        width: 100%;
+    }
+
+    .primary-heading span {
+		padding: 0;
+		display: inline-block;
+		margin-top: 5px;
+	}
+
+	#research .primary-heading span {
+		border: none;
+	}
+
+	#about-the-cover h3  {
+		display: none;
+		color: #FFF;
+	}
+
+	.standard-teaser h1 {
+	     font-size:120%;
+	}
+
+	.section .inner .more,
+	.subsection .sub-inner .more {
+		margin: 11px 5px 0 0;
+	}
+
+	.section .inner a.more {
+		position: relative;
+	}
+
+
+	/* 
+	****
+	* Header Search
+	* Everything for both v1 and v2 header search
+	****
+	*/
+
+
+	body #constrain-header form.search-form {
+		position: absolute;
+		top: 85px;
+		display:block;
+		z-index: 100;
+		width:100%;
+		height: 34px;
+		background: #DDD;
+		padding-top: 0;
+		margin: 0;
+		border-top: 5px solid #fff;
+	}
+
+	#constrain-header form.search-form input.txt {
+		width:45%;
+		padding:2px;
+		margin: 0 10px;
+		-webkit-border-radius: 0;
+		-moz-border-radius: 0;
+		border-radius: 0;
+	}
+
+	#constrain-header form.search-form button#header-search-submit {
+		color: #575E66;
+		background: #E1E4E9;
+		background: -webkit-gradient(linear, 0 0, 0 100%, from(#FDFCFD), to(#E1E4E9));
+		background: -webkit-linear-gradient(top, #FDFCFD, #E1E4E9);
+		background: -moz-linear-gradient(top, #FDFCFD, #E1E4E9);
+		background: -ms-linear-gradient(top, #FDFCFD, #E1E4E9);
+		background: -o-linear-gradient(top, #FDFCFD, #E1E4E9);
+		background: linear-gradient(to bottom, #FDFCFD, #E1E4E9);
+		vertical-align: middle;
+		border: 1px solid #C7C8CC;
+		float:left;
+		width:36px;
+		height:22px;
+	    font-size: 85%;
+	    font-weight: bold;
+	    padding: 3px;
+		-webkit-border-radius: 2px;
+		-moz-border-radius: 2px;
+		border-radius: 2px;
+	}
+
+	#constrain-header .v2 form.search-form button#header-search-submit {
+		margin: 0 5px;
+	}
+
+	/* Removed items from header search */
+
+	#constrain-header form.search-form label,
+	#header form.search-form label {
+		display:none;
+	}
+
+	/*
+	****
+	* Header v1
+	* Everything for header v1 excluding header search (also check in header v2)
+	****
+	*/
+
+	body #header h1.block-anchor {
+		position:absolute;
+		top:0;
+	}
+	
+	
+	ul.global-nav {
+		/*background: #CBCBCB url(./outlook_files/top-gradient.png) 50% 0 repeat-x;*/
+		background: #CBCBCB  50% 0 repeat-x;
+		background: -webkit-gradient(linear, 0 0, 0 310, from(#202020), to(#CBCBCB));
+		background: -webkit-linear-gradient(top, #202020, #CBCBCB 310px);
+		background: -moz-linear-gradient(top, #202020, #CBCBCB 310px);
+		background: -ms-linear-gradient(top, #202020, #CBCBCB 310px);
+		background: -o-linear-gradient(top, #202020, #CBCBCB 310px);
+		background: linear-gradient(to bottom, #202020, #CBCBCB 310px);
+		width:100%;
+	}
+
+	ul.breadcrumbs {
+		display: none;
+	}
+
+	#constrain-header {
+		margin-bottom: 0;
+	}
+
+	/* Cant be removed fully as it contains my account links */
+	body #leaderboard {
+		height: 0;
+		margin:0;
+	}
+
+	body #header.compact div.logon,
+	body #header div.logon {
+		padding: 0;
+		position: absolute;
+		top: -30px;
+		right: 0;
+	}
+
+	#header div.logon p span {
+		padding:0;
+	}
+
+	#header div.logon p.user-actions {
+		clear:none;
+		height: 24px;
+		margin: 0 5.4em 0 0;
+		line-height: inherit;
+		padding: 5px 0 0 0;
+	}
+
+	body #header .logon p.user-actions span {
+		float:right;
+		padding:0;
+		margin:0;
+	}
+	#header div.logon p.user-actions a {
+		padding-right: 10px;
+	}
+	
+	body #constrain-header ul.user-services {
+		margin: 5px 0 0 0;
+		top: -30px;
+	}
+
+	#header div.logon a,
+	#constrain-header #header div.logon a.login,
+	#constrain-header #header div.logon a.logout,
+	#constrain-header #header div.logon a.login:hover,
+	#constrain-header #header div.logon a.logout:hover,
+	body #constrain-header div.wrapper ul.user-services li a,
+	body #constrain-header div.wrapper ul.user-services li a:hover {
+		/*background: url(./outlook_files/divider-dotted.png) no-repeat 0 50% transparent;*/
+		color: #fff;
+		font-weight: normal;
+		padding: 0 0.83em;
+	}
+
+	body #constrain-header div.logged-in ul.user-services {
+		right: 4.8em;
+	}
+	
+	ul.global-nav {
+		height: 30px;
+	}
+
+	ul.global-nav li.home a {
+		background-image:none;
+		color:#FFF;
+		padding:2px 0 5px 5px;
+		font-weight: normal;
+		line-height: 24px;
+	}
+
+	body ul.global-nav li a:hover {
+		color:#FFF;
+	}
+
+	#header .header-tabs {
+		display: block;
+		position: relative;
+		width:100%;
+		background: #fff;
+		padding:0;
+	}
+
+	#header {
+		margin: 0;
+	}
+	
+	#constrain-header .logged-in ul.user-services li.my-account,
+	#constrain-header ul.user-services li.register {
+		display:block;
+	}
+	
+	#constrain-header ul.global-nav li.home a {
+		font-size:120%;
+		padding: 1px 10px;
+	}
+	
+	#constrain-header ul.user-services,
+	#constrain-header #header div.logon a {
+		color: #FFF;
+		font-weight: normal;
+		font-size: inherit;
+	}
+	#constrain-header ul.user-services {
+		position: absolute;
+	}
+	#constrain-header ul.user-services,
+	#constrain-header div.logon p {
+		font-size: 93%;
+	}
+	#constrain-header .logged-in div.logon p,
+	#constrain-header .logged-in div.logon p.user-actions span:first-child {
+		margin: 0;
+	}
+	#constrain-header .logged-in div.logon p.user-actions span {
+		margin: 0 7em 0 0;
+	}
+
+	body #constrain-header div.wrapper ul.user-services a {
+		font-size: inherit;
+	}
+	
+	html.js-enabled body #main-navigation.menu-active {
+		display: block;
+	}
+
+	.logon .access {
+		position:absolute;
+	}
+	
+	/* Removed items from header v1 */
+
+	#leaderboard-ad,
+	#constrain-header ul.user-services li,
+	#constrain-header form.search-form a.adv-search,
+	#constrain-header .logged-in ul.user-services li.register,
+	.a-z,
+	.browse {
+		display:none;
+	}
+
+	.smallscreen-remove {
+		display: none;
+	}
+
+	/*
+	****
+	* v1 AND v2 headers
+	****
+	*/
+	#foreword p.access span,
+	body #header div.logon p span {
+		background: transparent;
+	}
+	#foreword p.access,
+	#header div.logon p.access {
+		max-width: 50%;
+		max-height: 44px;
+		overflow: hidden;
+	}
+	#foreword p.compact a.show,
+	#foreword p.compact a:hover,
+	#header div.logon p.compact a.show,
+	#header div.logon p.compact a:hover {
+		position: absolute;
+		width: 240px;
+		right: 0;
+	}
+	#header div.logon p.compact,	
+	#foreword p.compact {
+		overflow:visible;
+	}
+	#foreword p.access,
+	#header div.logon p.access {
+		margin: 0 10px 0 0;
+		padding: 5px 0 0 0;
+	}
+	#header #main-navigation.menu-active li {
+		display:block;
+		float: none;
+		width:auto;
+		left: 0;
+		padding:0;
+	}
+	#header #main-navigation.menu-active li a,
+	#header #main-navigation.menu-active li a.active {
+		border: 0;
+		display: block;
+		float:none;
+		font-size: 100%;
+		padding: 6px;
+		background: #666;
+		border: solid #fff;
+		border-width: 1px 0 0 0;
+		color: #fff;
+		width: auto;
+		margin:0;
+	}
+
+	#header #main-navigation.menu-active li a:hover,
+	#header #main-navigation.menu-active li a:focus {
+		text-decoration: none;
+	}
+	#header #main-navigation.menu-active li.active a {
+		background: #888;
+	}
+
+	#header #main-navigation.menu-active li a:hover,
+	#header #main-navigation.menu-active li a:focus {
+		background: #777;
+	}
+
+	#header #main-navigation.menu-active li a:hover span,
+	#header #main-navigation.menu-active li a:active span,
+	#header #main-navigation.menu-active li.active span,
+	#header #main-navigation.menu-active li.active a {
+		filter: alpha(opacity=100);
+		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+		-moz-opacity: 1;
+		-webkit-opacity: 1;
+		opacity: 1;
+	}
+	
+	/*
+	****
+	* Header v2
+	* Everything for header v2 including nav/login (also check in header v1)
+	****
+	*/
+
+	body #foreword {
+        width:auto;
+    }
+    body #foreword ul.right {
+        margin:0;
+        padding: 5px 0;
+        font-size: 93%;
+    }
+
+	#foreword h1.home {
+		font-size:120%;
+		padding: 1px 10px;
+		background: none;
+	}
+
+    #foreword {
+        padding: 0;
+    }
+
+	#foreword p.access {
+		font-size:85%;
+		line-height: 1.33;
+		position: absolute;
+		right: 0;
+		text-align: right;
+		top: 30px;
+		width: 40%;
+		z-index: 2;
+	}
+	
+	#foreword p.access a:hover span,
+	#foreword p.access a.show span {
+		background: transparent; /* others */
+		background: -webkit-gradient(linear, left top, right top, color-stop(0,rgba(0,0,0,0.5)), color-stop(400px,rgba(0,0,0,0.5)), color-stop(500px,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(left, rgba(0,0,0,0.5) 0, rgba(0,0,0,0.5) 400px, rgba(0,0,0,0) 500px) no-repeat fixed; /* Chrome10+,Safari5.1+ */
+		background: -moz-linear-gradient(left, rgba(0,0,0,0.5) 0, rgba(0,0,0,0.5) 400px, rgba(0,0,0,0) 500px) no-repeat fixed; /* FF3.6+ */
+		background: -ms-linear-gradient(left, rgba(0,0,0,0.5) 0, rgba(0,0,0,0.5) 400px, rgba(0,0,0,0) 500px) no-repeat fixed; /* IE10+ */
+		background: -o-linear-gradient(left, rgba(0,0,0,0.5) 0, rgba(0,0,0,0.5) 400px, rgba(0,0,0,0) 500px) no-repeat fixed; /* Opera 11.10+ */
+		background: linear-gradient(to right, rgba(0,0,0,0.5) 0, rgba(0,0,0,0.5) 400px, rgba(0,0,0,0) 500px) no-repeat fixed; /* W3C */
+	}
+
+	#top-ads .leaderboard {
+		padding: 0;
+	}
+
+	.subscribe-prompt .subscribe-cta {
+		float: left;
+		padding:0;
+	}
+
+	#header form.search-form label {
+	    display:none;
+	}
+
+	body #header.compact,
+	body #header {
+		margin: 0;
+		padding: 89px 0 0 0;
+		border:none;
+		min-height: 0;
+	}
+
+	body #header.v2 h1 a {
+		position: absolute;
+		top: 0;
+		height: 50px;
+		width: 50%;
+		margin: 0;
+		padding: 0;
+		background-image: none;
+	}
+
+	body #main-navigation {
+		position: relative;
+		width:100%;
+		padding: 0;
+		background: #fff;
+	}
+
+	#main-navigation li a {
+		border: 0;
+		display: block;
+		width: 100%;
+		font-size: 100%;
+		padding: 6px 0 6px 8px;
+		background: #666;
+		border-top: 1px solid #fff;
+		border-left: 0;
+		border-right: 0;
+	}
+
+	body #header .logon {
+		width: 75%;
+	}
+
+	body #constrain-header form.search-form,
+	body #header form#header-search,
+	body #header form.search-form,
+	#header form#header-search,
+	#header form.search-form  {
+		display: block;
+		height: 22px;
+		width: 100%;
+		background:#DDD;
+		padding: 6px 0;
+		border-top: 5px solid #fff;
+		top:50px;
+	}
+
+	body #constrain-header form.search-form input,
+	body #header form#header-search input,
+	body #header form.search-form input,
+	#header form#header-search input,
+	#header form.search-form input {
+		margin: 0 10px;
+	}
+
+	#header form.search-form button#header-search-submit {
+		margin: 0;
+	}
+
+	#header form#header-search button,
+	#ftr .search-form input.button {
+	    float: left;
+	    margin: 0;
+	}
+
+	body #constrain-header form.search-form input.txt {
+		border: 1px solid #9E9986;
+		width: 50%;
+		font-size: 100%;
+		padding: 2px;
+	}
+
+	#breadcrumbs {
+		background: #fff;
+	}
+
+	#breadcrumbs ul {
+		padding: 0 0 0 10px;
+	}
+
+	#breadcrumbs ul li {
+		list-style: none;
+		float: none;
+		margin-bottom: 6px;
+	}
+
+	#breadcrumbs ul li a:before {
+		content: "- ";
+	}
+
+	#breadcrumbs li.sub-1 {
+		margin-left: 0;
+	}
+
+	#breadcrumbs li.sub-1 a {
+		padding-left: 0;
+	}
+
+	#breadcrumbs a,
+	#breadcrumbs span,
+	#breadcrumbs a:hover {
+		background: #fff;
+		font-size: 100%;
+		border-left: 0;
+		padding: 0;
+		margin: 0;
+	}
+
+	#breadcrumbs a:hover {
+		text-decoration: underline;
+	}
+	
+	#breadcrumbs
+	
+
+	/* Removed items from header v2 */
+	#breadcrumbs li.current,
+	#breadcrumbs li.first,
+	#breadcrumbs li.parent,
+	#foreword p.sitemap,
+	#header form#header-search a.adv-search,
+	#top-ads,
+	html.js-enabled body #main-navigation {
+		display: none;
+	}
+
+	/*
+	****
+	* JS Navigation
+	* Everything for the js enabled navigation
+	****
+	*/
+
+	.nav #js-menu,
+	#header #js-menu {
+		display: block;
+	}
+
+	#js-menu a {
+		position: absolute;
+		z-index: 101;
+		top: 55px;
+		right: 0;
+		display: block;
+		color: #fff;
+		text-decoration: none;
+		/*background: url(./outlook_files/menu-arrow.png) 82% center no-repeat #666;*/
+		clear: none;
+		font-size: 100%;
+		margin: 0;
+		padding: 6px 35px 6px 15px;
+		font-weight: bold;
+		height:22px;
+		line-height:22px;
+	}
+
+	.v2 #js-menu a.menu-up,
+	 #js-menu a.menu-up {
+		/*background: url(./outlook_files/menu-arrow-down.png) 82% center no-repeat #666;*/
+	}
+
+	#main-navigation {
+		display: none;
+		padding: 0;
+	}
+
+	body #header #main-navigation:target {
+		display: block;
+	}
+
+	body.blackberry #main-navigation {
+		display: block;
+	}
+
+	/*
+	****
+	* Footer
+	* Everything for the footer including the toggle, search and explore footer
+	****
+	*/
+
+	#footer a#toggle {
+		margin: 10px auto;
+	}
+
+	div#footer {
+        width:100%;
+		padding: 0;
+    }
+
+	#footer {
+		padding: 0;
+	}
+
+    div#footer.constrain {
+        border: 0;
+    }
+
+	#explore .atoz {
+		float: left;
+		position: relative;
+	}
+
+	#explore .list-set-wrapper .list-set  {
+		height: auto;
+		min-height: 50px;
+	}
+
+	#footer dl dt,
+	#footer dl dd {
+		float: left;
+	}
+	#footer .inner .narrow-journal-info {
+		width: auto;
+	}
+
+	#footer form#footer-search,
+	#ftr .search-form {
+		height: 22px;
+	    margin: 0;
+	    width: 96%;
+		float:left;
+	    background: #ddd;
+	    padding: 6px 0 6px 4%;
+		border-left: none;
+	    border-bottom: 5px solid #fff;
+	}
+
+
+
+	#footer-search input.txt,
+	#ftr .search-form input.text {
+		width: 80%;
+		margin-right: 5px;
+		padding: 2px;
+	}
+
+	#ftr .search-form input.text {
+		padding: 4px 0;
+	}
+
+	#footer-search button {
+		padding: 2px 10px;
+		text-transform: uppercase;
+	}
+
+	#ftr .search-form input.button {
+		padding: 5px 10px;
+		text-transform: uppercase;
+		margin-right: 5px;
+	}
+
+	#footer form#footer-search {
+        margin-top: 20px;
+        position: relative;
+    }
+
+    #footer ul.footer-links,
+	#ftr .footer-links {
+		width: auto;
+        float: none;
+        font-weight: bold;
+        font-size:110%;
+        border-bottom: 1px dotted #ccc;
+        border-right: 0;
+        margin: 0 20px;
+    }
+
+	.footer-links a {
+		font-weight: bold;
+	}
+
+	#footer ul.first {
+		padding-top: 20px;
+	}
+
+	#ftr .footer-links {
+		padding: 10px 0 5px;
+	}
+
+	#ftr .footer-links.last {
+		border: none;
+	}
+
+	#ftr #footer-copyright {
+		margin: 0;
+	}
+
+	#ftr #footer-search input.txt,
+	#ftr .search-form input.text-inner {
+		padding: 0;
+	}
+
+    #footer .footer-main .copyright  {
+        background-position: left top;
+        padding: 50px 0 0;
+        margin-top: 10px;
+    }
+
+	#ftr .logo {
+		background-position: left top;
+		padding: 50px 0 0;
+		margin-left: 10px;
+	}
+
+	#constrain-footer {
+		border: 0;
+	}
+
+	/* Removed items from the footer */
+
+	#footer form#footer-search label,
+	#ftr .search-form label {
+		display:none;
+	}
+
+	/*
+	****
+	* Global Boxes
+	* Global boxs used within content and the sidebar
+	****
+	*/
+
+	#extranav div.box,
+	#extranav div.module {
+		float: left;
+		width: 99%;
+		margin: 0 0 10px;
+	}
+
+	#extranav div#quick-nav {
+		width: auto;
+	}
+
+	.home #nature-events-box,
+	#research #nature-events-box,
+	.home #nature-jobs-box,
+	#research #nature-jobs-box {
+		width: 99%;
+		float: left;
+		margin-bottom: 10px;
+	}
+
+	.focus-box {
+		margin-bottom: 20px;
+	}
+
+	.focus-box .inner,
+	.subsection.focus-box .sub-inner {
+		width:97%;
+		border:none;
+		padding-right:0;
+	}
+
+	#careers-jobs ul.article-list {
+		border: 0;
+	}
+
+	#careers-jobs ul.extras-list,
+	#careers-jobs p.extras-list,
+	#events-box ul.extras-list,
+	#events-box p.extras-list {
+		border: 0;
+	}
+
+	/*
+	****
+	* Article pages
+	* Everything mainly used on article pages
+	****
+	*/
+
+	body img.fig {
+        width:100% !important;
+        height:auto !important;
+    }
+
+	div.article-template {
+		padding-top: 0;
+	}
+
+	.subscribe-prompt .subscribe-cta {
+		float: left;
+		padding: 0;
+	}
+	div.article-tools li {
+	    margin: 0 5px 5px 0;
+	    width: 44%;
+	}
+	div.article-tools .tools li a {
+		min-height: 20px;
+		margin-top: 5px;
+		font-size: 85%;
+		-webkit-background-size: 15px;
+		-moz-background-size: 15px;
+		-o-background-size: 15px;
+		background-size:  15px;
+		/*background-position: 3px 0;*/
+	}
+	.top-links .article-com-tools {
+		margin-right: 5px;
+	}
+	div.article-tools li.download-pdf a,
+	div.article-tools li.downloading-pdf a  {
+		/*background-image: url(./outlook_files/article_tools_sprite.png);*/
+		background-position: 7px 0;
+	}
+	div.download-popup li.readcube a {
+		/*background-image: url(./outlook_files/article_tools_sprite.png);*/
+		background-position: 3px 3px;
+	}
+	div.article-tools li.download-readcube a {
+		/*background-image: url(./outlook_files/readcube_logo.gif);*/
+	}
+	div.article-tools li.download-citation a, 
+	p.download-refs a {
+		/*background-image: url(./outlook_files/article_tools_sprite.png);*/
+		background-position: 3px -61px;
+	}
+	div.article-tools li.order-reprints a,
+	div.article-tools li.full-text a {
+		/*background-image: url(./outlook_files/article_tools_sprite.png);*/
+		background-position: 3px -125px;
+	}
+	div.article-tools li.rights a  {
+		/*background-image: url(./outlook_files/article_tools_sprite.png);*/
+		background-position: 3px -180px;
+	}
+	div.article-tools li.article-metrics a {
+		/*background-image: url(./outlook_files/article_tools_sprite.png);*/
+		background-position: 3px -240px;
+	}
+
+	.subscribe-prompt h4 {
+		min-height: 70px;
+		margin-top: 20px;
+	}
+
+	/* Related elated page styles */
+	
+	#related-videos {
+		margin-left: 0;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	#related-videos li {
+		display:block;
+		border:0;
+		border-bottom:1px solid #e1e1e1;
+		border-top:1px solid #FFF;
+		margin:0 10px 0 0;
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none;
+		margin-right: 0;
+		background:#F0F0F0;
+	}
+
+	ul#related-videos a {
+		width:97%;
+		padding:10px;
+
+	}
+	#related-videos div.thumbnail {
+		float: left;
+		margin-right: 10px;
+		width: auto;
+		overflow: hidden;
+	}
+	#related-videos div.thumbnail:after {
+	    /*background: url(./outlook_files/video-prompt.png) no-repeat scroll 0 0 transparent;*/
+	    content: "";
+	    height: 34px;
+	    left: 28%;
+	    position: absolute;
+	    top: 28%;
+	    width: 34px;
+	    z-index: 2;
+	}
+	ul#related-videos li.selected h6 {
+		width: 169px;
+		padding: 5px;
+		margin: 5px;
+	}
+
+	#constrain ul#related-videos .title,
+	#constrain ul#related-videos .strap {
+		float:none;
+		margin:0 0 10px;
+	}
+	ul#related-videos a:hover,
+	ul#related-videos li.selected a {
+		background:#DDD;
+	}
+	ul#related-videos li.selected h5.video-selected{
+		top:10px;
+		left:10px;
+	}
+	ul#related-videos .video {
+		margin-right:10px;
+	}
+	.related-video h2 {
+		background:#000; 
+		padding:10px; 
+		color:#EEE; 
+		margin:0; 
+	}
+	.video-player object {
+		height:100% !important;
+	}
+
+	ul.video-tasks li {
+		float: none;
+	}
+    div.article-tools ul.video-tasks li.original-article {
+        float: left;
+		margin-top: 4px;
+    }
+
+	/* This is generic pop up that is mostly used for the authors */
+	.js-enabled .popup {
+		max-width: 280px;
+		width: 100%;
+		padding-left: 20px;
+		z-index: 100000000;
+	}
+	html.js-enabled .highlight-popup,
+	html.js-enabled  .compound-popup {
+		width: 85% !important;
+		margin-left: 5px !important;
+	}
+	html.js-enabled div.compound-popup h2 {
+		min-width: 0;
+		width: 290px;
+		padding-right: 10px;
+	}
+	.js-enabled div.compound-popup img {
+		max-width: 80%;
+	}
+	.js-enabled .highlight-popup h2,
+	.js-enabled .compound-popup h2 a {
+		word-wrap: break-word;
+	}
+
+	/* Removed items form the article pages */
+	#constrain-header #breadcrumbs,
+	.figures-at-a-glance {
+		display: none;
+	}
+
+
+	/* Content Structure */
+
+	.home .article-list li#article-list-links a,
+	.more-link {
+		float: left;
+		margin: 10px 5px 0 0;
+	}
+
+	ul.article-list.split li,
+	ul.article-list li.split {
+		width: 100%;
+	}
+
+	/*
+	****
+	* TOC pages
+	* Items used globally across AIP TOC pages
+	****
+	*/
+
+	.content-block-full {
+		width: 100%;
+	}
+
+	.lead-teaser h1 a {
+		display: block;
+		margin: 0 0 10px;
+		height: auto;
+	}
+
+   .lead-teaser.media-right div.media {
+       position:relative;
+    }
+
+    /* Article features */
+
+	ul.prev-next-article {
+		float: left;
+		width: 100%;
+		margin: 0 10px 0;
+	}
+
+	ul.prev-next-article li.prev {
+		float: left;
+	}
+
+	ul.prev-next-article li.next {
+		float: right;
+		margin-right: 20px;
+	}
+
+	/*
+	****
+	* TOC pages
+	* Items used globally across AIP TOC pages
+	****
+	*/
+
+
+	body.toc #content .secondary-heading {
+		font-size:90%;
+	}
+
+	ul.collapsed-list li {
+		display: block;
+		margin-bottom: 10px;
+	}
+
+	ul.collapsed-list li a {
+		border: none;
+		padding: 0;
+	}
+
+	#issue-meta .sub-inner .sub-inner-content .toc {
+		padding: 10px 0 0 10px;
+	}
+
+	#issue-meta .sub-inner .secondary-heading span {
+		padding: 0 0 0 5px;
+	}
+
+	#issue-meta .sub-inner .sub-inner-content .toc {
+		float: left;
+		clear: left;
+		border-top: solid 1px #D7D7D7;
+		border-left: none;
+		margin-left: 0;
+	}
+
+	#issue-meta .sub-inner .sub-inner-content .toc li {
+		float: left;
+		height: auto;
+	}
+
+	#issue-meta .sub-inner .sub-inner-content img {
+		float: none;
+		display: block;
+		width: 148px;
+		height: 196px;
+		margin: 10px auto;
+	}
+
+	#issue-meta .sub-inner span.more {
+		font-size:80%;
+	}
+
+
+	/*
+	****
+	* Research pages
+	* Items used globally across AIP Research pages
+	****
+	*/
+
+	.list-header .secondary-heading {
+        width: 100%;
+    }
+
+    .list-header .extras-list {
+        float: left;
+        margin: 0 0 20px;
+    }
+
+    .list-header .paging {
+        float: left;
+        margin: 0 -2px 9px 0;
+    }
+
+	#research .primary-heading span {
+		width: auto;
+		display: inline-block;
+		margin: 0;
+		border: none;
+	}
+
+	ul.extras-list li {
+		float: left;
+		padding: 10px 0 0 10px;
+	}
+
+	p.extras-list {
+		text-align: left;
+	}
+
+	/* Article Elements to hide */
+	#content ul.prev-next-article,
+	.figures-at-a-glance,
+	.reshigh-carousel {
+	    display: none;
+	}
+	 
+	/* V2 'Landing' pages */
+	.standard-teaser h1 {
+	     font-size:120%;
+	}
+
+	/* 'Article Metrics' pages */
+	#am-container,
+	.metrics-head {
+		margin: 5px;
+	}
+	.citation-list h2.citation-header {
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+	.metric-display .section h4 {
+		width: auto;
+		text-align: left;
+		margin-bottom: 5px;
+	}
+	.graph-nav {
+		display: none;
+	}
+	.graph-placeholder {
+		width: 100%;
+	}
+	#am-container .am-col {
+    	width: 100%;
+    }
+    .metric-display h2 {
+  		margin-top: 10px;
+    	height: auto;
+    	float: left;
+    }
+    .metrics-module h2 {
+    	text-align: left;
+    }
+	.citations-container {
+		margin: 0 0 10px;
+	}
+	.citation-metrics {
+		margin-top: 10px;
+		text-align: center;
+	}
+	#am-container .am-module ul.citation-summary {
+		display: inline-block;
+		margin-left: auto;
+		width: auto;
+	}
+	.citation-summary li {
+		margin: 8px;
+	}
+    #am-container .am-col .am-module {
+    	width: 100%;
+		margin: 0 0 10px;
+    }
+    #am-container .am-col .metrics-module {
+    	width: 100%;
+    }
+    #online-media-metrics {
+    	width: 100%;
+    }
+ 	.twitter-demographics-container  #map-canvas,
+ 	.twitter-demographics-container  table.twitter-demographic-table {
+   		float: none;
+   		margin: 0;
+    }
+
+	#am-container .metric-terms li {
+		min-height: 425px;
+	}
+	.metric-defintions dd {
+		margin-left: 0;
+		padding: 0;
+		float: left;
+		display: block;
+		margin-top: 2px;
+	}
+	.metric-defintions dt {
+		display: block;
+		float: none;
+		text-align: left;
+		font-style: italic;
+	}
+
+	/* 
+	****
+	* WT Tracking
+	* A css property we track using web trends to check if mobile css is being used
+	****
+	*/
+
+	#mobile-css-test {
+		display: block;
+	}
+}
+
+/* print test to remove
+@media screen and (max-width:8.5in) { /* resize your window until the event is triggered 
+    html { width:8.5in; }
+    body { font: 9pt/1.5 Arial, sans-serif; } /* Roughly 12px font */
+
+
+
+
+

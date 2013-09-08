@@ -1,0 +1,143 @@
+#constrain-content #content {
+    font-size: 111.5%;
+    line-height: 1.65em;    
+}
+
+h1.article-heading,
+h1.main-heading {
+    color: #000;
+    font-weight: normal;
+    font-size: 197%;
+    letter-spacing: -0.5px;
+    line-height: 1.173;
+    color: #222;
+    margin: 0 0 20px;
+}
+h1.main-heading { 
+    margin: 0;
+}
+/* need to make sure this doesn't conflict with the top content sidebar box */
+ul.tabs {
+    position: relative;
+    bottom: -1px;
+    left: 1px;
+    z-index: 1;
+    zoom: 1;
+}
+body.ie6 ul.tabs {
+    left: 0;
+}
+body.ie6 ul.tabs li {
+    margin-left: 0;
+}
+ul.tabs li {
+    float: left;
+    border: 1px solid #e7e7e7;
+    margin-left: -1px;
+}
+ul.tabs li.active {
+    border-bottom: 0;
+}
+ul.tabs li a {
+    display: block;
+    padding: 5px 10px;
+    /*background: #afb8c1 url(/view/images/bg_dark_grad.gif) repeat-x 0 0;*/
+    background: #afb8c1 repeat-x 0 0;
+    color: #fff;
+}
+ul.tabs li a:hover {
+    /*background: #fff url(/view/images/bg_light_grad.gif) repeat-x 0 0;*/
+    background: #fff repeat-x 0 0;
+    color: #333;
+    text-decoration: none;
+}
+ul.tabs li span {
+    display: block;
+    padding: 5px 10px 6px;
+    /*background: #fff url(/view/images/bg_light_grad.gif) repeat-x 0 0;*/
+    background: #fff repeat-x 0 0;
+    font-weight: bold;
+}
+div.related-content ul.tabs {
+    margin-top: 20px;
+}
+div.tab-pane {
+    clear: both;
+    padding: 19px 0 0;
+    margin: 0;
+    border: 1px solid #E7E7E7;
+}
+div.tab-pane a {
+    font-weight: bold;    
+}
+.right-arrow a {
+    /*background: url("/view/images/arrow_small_right.gif") no-repeat scroll 100% 50% transparent;*/
+    padding-right: 12px;
+}
+
+#content-list {
+    list-style: decimal outside none;
+    padding: 0 19px 0 39px;
+    margin: 0 0 20px;
+}
+
+#content-list li {
+    list-style: decimal outside none;
+    margin: 0 0 20px;
+}
+
+#content-list li a {
+    font-weight: bold;
+}
+
+.journal-title {
+    font-style: italic;
+    text-transform: capitalize;
+}
+
+div.tab-pane .box-footer {
+    margin: 0;
+    padding: 2px 19px;
+    /*background: #fff url(/view/images/bg_light_grad.gif) repeat-x 0 0;*/
+    background: #fff repeat-x 0 0;
+    font-size: 85%;
+    position: relative;
+}
+div.tab-pane ul.box-footer li {
+    margin: 0 auto;
+}
+div.tab-pane ul.box-footer li.prev {
+    position: absolute;
+    left: 10px;
+    top: 0;
+}
+div.tab-pane ul.box-footer li.next {
+    position: absolute;
+    right: 10px;
+    top: 0;
+}
+li.paging {
+    text-align: center;
+}
+li.paging ol.pagination {
+    display: inline
+}
+li.paging ol.pagination li {
+    display: inline;
+    padding: 0 0.3em;
+}
+
+div.tab-pane p.error {
+    margin: 0 0 20px;
+    padding: 0 19px;
+} 
+div.tab-pane li span.journal-title {
+    padding: 0 5px 0 0;
+}
+div.tab-pane li span.time {
+    padding: 0 0 0 7px;
+    /*background: url(/view/images/bg_pipe.gif) no-repeat 0 0.4ex;*/
+}
+.read-description {
+    margin-top: 20px;
+}
