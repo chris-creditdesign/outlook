@@ -114,12 +114,12 @@ function draw() {
 
 	/*	We know that javascript is enabled and that we are not in IE 6-8
 		so hide the error message and show outer-wrapper */
-	$(".outer-wrapper").css({"display":"block"});
-	$(".status-message").css({"display":"none"});
+	$(".outer-wrapper").css("display","block");
+	$(".status-message").css("display","none");
 
 
 	/*	Add SVG elements to the play and pause buttons */
-	var playSvg = d3.select("button.play")
+	var playSvg = d3.select(".outer-wrapper .year-wrapper button.play")
 					.append("svg")
 					.attr("width", 50 )
 					.attr("height", 45 )
@@ -131,7 +131,7 @@ function draw() {
 					.attr("transform", "translate(5,2), scale(1.25)");
 
 
-	var pauseSvg = d3.select("button.pause")
+	var pauseSvg = d3.select(".outer-wrapper .year-wrapper button.pause")
 					.append("svg")
 					.attr("width", 50 )
 					.attr("height", 45 );
@@ -181,20 +181,20 @@ function draw() {
 	var allValues = [];
 
 	var play = null;
-	var totalYears = $("select#selectYear option").length;
-	var displayYear = $("select#selectYear option:selected").val();
-	var counter = $("select#selectYear option:selected").index();
+	var totalYears = $(".outer-wrapper .year-wrapper select#selectYear option").length;
+	var displayYear = $(".outer-wrapper .year-wrapper select#selectYear option:selected").val();
+	var counter = $(".outer-wrapper .year-wrapper select#selectYear option:selected").index();
 	var interval = 500;
 
 	/* set up canvas */
-	var canvas = d3.select(".canvas-map").append("canvas")
+	var canvas = d3.select(".outer-wrapper .count-map .canvas-map").append("canvas")
 	    .attr("width", width)
 	    .attr("height", height);
 
 	var context = canvas.node().getContext("2d");
 
 	/*	Create SVG element */
-	var holder = d3.select(".svg-map")
+	var holder = d3.select(".outer-wrapper .count-map .svg-map")
 			.append("svg")
 			.attr("width", width)
 			.attr("height", height)
@@ -243,7 +243,7 @@ function draw() {
 	/*	Functions and event listeners */
 
 	/* Event listner for when the user changes the adjust scale checkbox */
-	d3.selectAll("select#selectYear").on("change", function() {
+	d3.selectAll(".outer-wrapper .year-wrapper select#selectYear").on("change", function() {
 		displayYear = this.value;
 		/* Redraw the map - taking into account the choice */
 		updateYear();
@@ -261,9 +261,9 @@ function draw() {
 		return;
 	};
 
-	$("button.play").click(function(e){
-		$("button.play").css({"display":"none"});
-		$("button.pause").css({"display":"block"});
+	$(".outer-wrapper .year-wrapper button.play").click(function(e){
+		$(".outer-wrapper .year-wrapper button.play").css({"display":"none"});
+		$(".outer-wrapper .year-wrapper button.pause").css({"display":"block"});
 
 		if ( counter >= (totalYears-2) ) {
 			counter = 0;
@@ -284,25 +284,29 @@ function draw() {
 
 	});
 
-	$("button.pause").click(function () {
-		$("button.play").css({"display":"block"});
-		$("button.pause").css({"display":"none"});
+	$(".outer-wrapper .year-wrapper button.pause").click(function (e) {
+		$(".outer-wrapper .year-wrapper button.play").css({"display":"block"});
+		$(".outer-wrapper .year-wrapper button.pause").css({"display":"none"});
 		window.clearInterval(play);
+
+		e.preventDefault();
+		return false;
 	});
 
-	$(".outer-wrapper .count-map span.pointer").click(function () {
+	$(".outer-wrapper .count-map span.pointer").click(function (e) {
 		
 		if ( $(this).children("span").is(':visible') ) {
 			$(this).children("span").fadeOut(duration);
 		} else {
 			if ( parseInt($(this).css("left")) > (width/2) ) {
-				console.log("it's on the right");
 				$(this).children("span").css("left","-320px").fadeIn(duration);
 			} else {
-				console.log("it's on the left");
 				$(this).children("span").css("left","50px").fadeIn(duration);
 			}			
 		}
+
+		e.preventDefault();
+		return false;
 	})
 
 	/*	Build jQueryUI slider */
@@ -323,7 +327,7 @@ function draw() {
 		}
 	});
 
-	$( "#selectYear" ).change(function() {
+	$( ".outer-wrapper .year-wrapper #selectYear" ).change(function() {
 		counter = $("select#selectYear option:selected").index();
 		$("button.play").css({"display":"block"});
 		$("button.pause").css({"display":"none"});
@@ -348,8 +352,8 @@ function draw() {
 
 			};
 			$(".outer-wrapper .count-map span.pointer").children("span").fadeOut(duration);
-			$(".pointer").css("display","none");
-			$(".pointer." + displayYear + "").css("display","block");
+			$(".outer-wrapper .count-map span.pointer").css("display","none");
+			$(".outer-wrapper .count-map span.pointer." + displayYear + "").css("display","block");
 
 		}
 
@@ -367,7 +371,7 @@ function draw() {
 			}
 		};
 
-		$(".pointer." + displayYear + "").css("display","block");
+		$(".outer-wrapper .count-map span.pointer." + displayYear + "").css("display","block");
 	}
 
 
@@ -389,7 +393,8 @@ function draw() {
 				.each(function(d,i) { 
 					if (i === (dataset.length - 1 ) ) {
 						d3.select(".outer-wrapper .count-map img").style("display","none");
-						$(".key-holder").css({"display":"block"});
+						$(".outer-wrapper .count-map .key-holder").css("display","block");
+						$(".outer-wrapper .year-wrapper").css("display","block");
 					}
 				});
 
@@ -445,8 +450,9 @@ function draw() {
 	/* Only load the svg if we think we're not on a touch screen */
 	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 		/* 	Hide the preloader */
-		$(".outer-wrapper .count-map img").css({"display":"none"});
-		$(".key-holder").css({"display":"block"});
+		$(".outer-wrapper .count-map img").css("display","none");
+		$(".outer-wrapper .count-map  .key-holder").css("display","block");
+		$(".outer-wrapper .year-wrapper").css("display","block");
 	} else {
 		/* 	Load the svg after a delay to ensure the canvas map fills the stage
 			first and the user is not left looking at a blank screen */
