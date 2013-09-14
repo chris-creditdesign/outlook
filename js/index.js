@@ -377,7 +377,7 @@ function draw() {
 				/* Update the tooltip text */
 				d3.select(".tooltip")
 					.select(".value")
-					.html(d["" + displayYear + ""]);
+					.html(d["" + displayYear + ""] + " mm");
 
 
 				/* Show the tooltip */
