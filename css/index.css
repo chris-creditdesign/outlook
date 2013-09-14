@@ -123,7 +123,144 @@
     font-size: 16px;
     line-height: 20px;
     text-align: center;
-} 
+}
+
+
+/* Pointers
+----------------------------------*/
+
+.pointer {
+	position: absolute;
+	cursor:pointer;
+	width: 45px;
+	height: 45px;
+	background-color: none;
+	background: none;
+}
+
+
+.north-america-west{
+	left: 43px;
+	top: 104px;
+}
+.north-america-east{
+	left: 260px;
+	top: 145px;
+}
+.canada-east{
+	left: 301px;
+	top: 69px;
+}
+.mexico{
+	left: 104px;
+	top: 210px;
+}
+.costa-rica{
+	left: 153px;
+	top: 255px;
+}
+.cuba{
+	left: 259px;
+	top: 200px;
+}
+.peru{
+	left: 181px;
+	top: 350px;
+}
+.brazil-north{
+	left: 316px;
+	top: 254px;
+}
+.brazil-south{
+	left: 346px;
+	top: 341px;
+}
+.argentina{
+	left: 284px;
+	top: 450px;
+}
+
+.england{
+	left: 362px;
+	top: 83px;
+}
+.spain{
+	left: 366px;
+	top: 135px;
+}
+.morocco{
+	left: 341px;
+	top: 196px;
+}
+.nigeria{
+	left: 415px;
+	top: 290px;
+}
+.angola{
+	left: 421px;
+	top: 373px;
+}
+.s-africa{
+	left: 510px;
+	top: 427px;
+}
+.madagascar{
+	left: 582px;
+	top: 354px;
+}
+.kenya{
+	left: 566px;
+	top: 295px;
+}
+.saudi-arabia{
+	left: 585px;
+	top: 241px;
+}
+.india{
+	left: 650px;
+	top: 280px;
+}
+.malaysia{
+	left: 698px;
+	top: 333px;
+}
+.australia-west{
+	left: 691px;
+	top: 380px;
+}
+.australia-south{
+	left: 760px;
+	top: 437px;
+}
+.australia-east{
+	left: 858px;
+	top: 378px;
+}
+.new-guinea{
+	left: 840px;
+	top: 290px;
+}
+.philippines{
+	left: 786px;
+	top: 247px;
+}
+.china{
+	left: 773px;
+	top: 190px;
+}
+.japan{
+	left: 830px;
+	top: 150px;
+}
+.russia-east{
+	left: 870px;
+	top: 100px;
+}
+.russia-west{
+	left: 534px;
+	top: 0px;
+}
+
 
 /* Year wrapper
 ----------------------------------*/
