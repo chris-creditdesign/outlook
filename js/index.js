@@ -236,9 +236,6 @@ function draw() {
 
 	function setSelectedIndex(x) {
 		document.getElementById("selectYear").options[x].selected = true;
-		// document.getElementById("selectYear").value = "value1979";
-
-		// $("#selectYear").val("value1979");
 
 		slider.slider( "value", (x + 1) );
 
@@ -278,7 +275,7 @@ function draw() {
 		window.clearInterval(play);
 	})
 
-
+	/*	Build jQueryUI slider */
 	var select = $( "#selectYear" );
 	var slider = $( "<div id='slider'></div>" ).insertBefore( select ).slider({
 		min: 1,
@@ -324,7 +321,6 @@ function draw() {
 		}
 
 	function createCanvas () {
-
 
 		for (var i = 0; i < dataset.length; i++) {
 			var posX = xScale(dataset[i].long);
@@ -386,7 +382,7 @@ function draw() {
 
 				/* Show the tooltip */
 				d3.select(".tooltip")
-					.classed("hidden", false)
+					.classed("tooltip-hidden", false)
 					.transition()
 					.duration(duration/2)
 					.style("opacity", 1);
@@ -397,7 +393,7 @@ function draw() {
 					.duration(duration/2)
 					.style("opacity", 0)
 					.each("end", function() {
-						d3.select(".tooltip").classed("hidden", true);
+						d3.select(".tooltip").classed("tooltip-hidden", true);
 					});
 			})
 	}

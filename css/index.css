@@ -112,7 +112,7 @@
     pointer-events: none;
 }
 
-.outer-wrapper .count-map .tooltip.hidden {
+.outer-wrapper .count-map .tooltip.tooltip-hidden {
     display: none;
 }
 
