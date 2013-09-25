@@ -299,8 +299,10 @@ function draw() {
 			$(this).children("span").fadeOut(duration);
 		} else {
 			if ( parseInt($(this).css("left")) > (width/2) ) {
+				$(".outer-wrapper .count-map span.pointer").children("span").fadeOut(duration);
 				$(this).children("span").css("left","-320px").fadeIn(duration);
 			} else {
+				$(".outer-wrapper .count-map span.pointer").children("span").fadeOut(duration);
 				$(this).children("span").css("left","50px").fadeIn(duration);
 			}			
 		}

@@ -165,6 +165,7 @@
 	border: 1px solid #666666;
 	padding: 6px;
 	display: none;
+	z-index: 5;
 }
 
 .outer-wrapper .count-map span.pointer > span > p {
