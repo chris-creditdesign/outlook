@@ -338,7 +338,7 @@ function draw() {
 
 	function updateYear () {
 			/* Update the key text */
-			d3.select(".outer-wrapper .key-holder .key p span.this-year").html([displayYear.substr(5)]);
+			d3.select(".outer-wrapper .year-holder h3 span.this-year").html([displayYear.substr(5)]);
 
 			context.clearRect(0,0,width,height);
 
