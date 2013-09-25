@@ -34,6 +34,10 @@
 	position: absolute;
 }
 
+.outer-wrapper .outline-map {
+	position: absolute;
+}
+
 
 .outer-wrapper .count-map svg rect {
 	cursor: pointer;
@@ -44,6 +48,21 @@
 
 .outer-wrapper .count-map svg text {
 	pointer-events: none; 
+}
+
+
+/* Year
+----------------------------------*/
+.outer-wrapper .year-holder {
+  position: absolute;
+  top: 170px;
+  left: 300px;
+  /*display: none;*/
+  pointer-events:none;
+}
+
+.outer-wrapper .year-holder h3 {
+	font-size: 200%;
 }
 
 
