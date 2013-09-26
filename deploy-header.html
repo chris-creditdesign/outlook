@@ -1,0 +1,29 @@
+#cparse("/view/configs/global.config.vm")
+#cparse("/nature/journal/v484/n7395_supp/velocity-data/484S14a.vm") ## update this path to match the article this interactive is related to
+
+#set($tmp = 
+$nPage.put(
+	"isRelatedPage", 
+	true))
+
+#set($tmp = 
+$nPage.put(
+	"singleColumn", 
+	true))
+	
+#set($nPage.fullPageTitle = "${nPage.titleText} : $nPage.journalTitle : $nConfig.publisherName")
+#set($nConfig.isArticleRelated = true)
+#set($nPage.related = {
+	"type": "Figure"
+})
+
+<div id="content" class="related-content">
+	#nH5(["article"])
+		#nH5(["header"])
+			<h1 class="main-heading">Add title here</h1>
+			<h2 class="sub-heading"><span class="from">From</span> <a href="${nPage.baseUrl}/full/${nPage.articleFilename}.html">$nPage.titleHtml</a></h2>
+			
+			#nCanHas("bibliography", "")
+		#nH5([])#* /header *#
+		
+		<p class="back left-arrow"><a href="${nPage.baseUrl}/full/${nPage.articleFilename}.html">back to article</a></p>
