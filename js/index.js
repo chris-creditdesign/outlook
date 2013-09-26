@@ -261,7 +261,7 @@ function draw() {
 		return;
 	};
 
-	$(".outer-wrapper .year-wrapper button.play").click(function(e){
+	$(".outer-wrapper .year-wrapper button.play").on("click", function(e){
 		$(".outer-wrapper .year-wrapper button.play").css({"display":"none"});
 		$(".outer-wrapper .year-wrapper button.pause").css({"display":"block"});
 
@@ -284,7 +284,7 @@ function draw() {
 
 	});
 
-	$(".outer-wrapper .year-wrapper button.pause").click(function (e) {
+	$(".outer-wrapper .year-wrapper button.pause").on("click", function (e) {
 		$(".outer-wrapper .year-wrapper button.play").css({"display":"block"});
 		$(".outer-wrapper .year-wrapper button.pause").css({"display":"none"});
 		window.clearInterval(play);
@@ -293,7 +293,7 @@ function draw() {
 		return false;
 	});
 
-	$(".outer-wrapper .count-map span.pointer").click(function (e) {
+	$(".outer-wrapper .count-map span.pointer").on("click", function (e) {
 		
 		if ( $(this).children("span").is(':visible') ) {
 			$(this).children("span").fadeOut(duration);
