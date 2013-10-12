@@ -1,12 +1,13 @@
 (function() {
-	    var init = function($)	
-	    {
+		var init = function($)	
+		{
 
 /*	Global variable to hold data parsed from the csv file */
 var dataset;
 
 /*	==================================================================================== */
 /*	Load jQuery UI and D3 */
+/*	Only load D3 once jQuery UI has loaded. Once D3 is loaded then load the CSV data */
 
 $.getScript("js/jquery-ui-1.10.3.custom.min.js", checkUI());
 
@@ -47,6 +48,7 @@ function loadData () {
 
 		var thisLong = +d.long;
 
+		/* Refactor the map so that Alaska is at the far left rather that Grenwhich */
 		if (thisLong > 195 ) {
 			thisLong -= 195;
 		} else {
@@ -97,6 +99,7 @@ function loadData () {
 	}, function(error, d) {
 
 		if (error) {
+			/* TO DO */
 			console.log(error)
 		} else {
 			/* Once loaded, copy to dataset */
@@ -111,12 +114,6 @@ function loadData () {
 /*	draw() function to be called once CSV data loaded */
 
 function draw() {
-
-	/*	We know that javascript is enabled and that we are not in IE 6-8
-		so hide the error message and show outer-wrapper */
-	$(".outer-wrapper").css("display","block");
-	$(".status-message").css("display","none");
-
 
 	/*	Add SVG elements to the play and pause buttons */
 	var playSvg = d3.select(".outer-wrapper .year-wrapper button.play")
@@ -376,6 +373,16 @@ function draw() {
 		$(".outer-wrapper .count-map span.pointer." + displayYear + "").css("display","block");
 	}
 
+	function showElements () {
+		/* 	Hide the preloader */
+		$(".outer-wrapper .count-map img").css("display","none");
+		$(".outer-wrapper .count-map .key-holder").css("display","block");
+		$(".outer-wrapper .count-map .year-holder").css("display","block");
+		$(".outer-wrapper .outline-map").css("display","block");
+		$(".outer-wrapper .year-wrapper").css("display","block");
+
+	}
+
 
 	function createSvg () {
 		
@@ -394,9 +401,7 @@ function draw() {
 				.attr("height", rectHeight)
 				.each(function(d,i) { 
 					if (i === (dataset.length - 1 ) ) {
-						d3.select(".outer-wrapper .count-map img").style("display","none");
-						$(".outer-wrapper .count-map .key-holder").css("display","block");
-						$(".outer-wrapper .year-wrapper").css("display","block");
+						showElements();
 					}
 				});
 
@@ -451,10 +456,7 @@ function draw() {
 
 	/* Only load the svg if we think we're not on a touch screen */
 	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-		/* 	Hide the preloader */
-		$(".outer-wrapper .count-map img").css("display","none");
-		$(".outer-wrapper .count-map  .key-holder").css("display","block");
-		$(".outer-wrapper .year-wrapper").css("display","block");
+		showElements();
 	} else {
 		/* 	Load the svg after a delay to ensure the canvas map fills the stage
 			first and the user is not left looking at a blank screen */
