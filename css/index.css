@@ -431,36 +431,6 @@
 	right: 0;
 }
 
-/* Buttons
-----------------------------------*/
-.outer-wrapper .year-wrapper button {
-	display: block;
-	width: 50px;
-	height: 45px;
-	margin: 0px 0 0 10px;
-	float: left;
-	background-color: #3EC6DC;
-	cursor: pointer;
-	border: 1px solid transparent;
-	border-radius: 4px;
-	-webkit-user-select: none;
-	   -moz-user-select: none;
-	    -ms-user-select: none;
-	     -o-user-select: none;
-	        user-select: none;
-}
-
-.outer-wrapper .year-wrapper button:hover,
-.outer-wrapper .year-wrapper button:focus,
-.outer-wrapper .year-wrapper button:active {
-	background-color: #2CB1A0;  
-	border-color: #2CB1A0;  
-}
-
-.outer-wrapper .year-wrapper button.pause {
-	display: none;
-}
-
 
 
 

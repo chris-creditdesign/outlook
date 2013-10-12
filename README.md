@@ -4,8 +4,6 @@ Interactive graphic for Nature Outlook built with D3.js
 http://d3js.org/
 
 To do:
-Re order loading so that compatable browsers never see error message.
-Remove play function.
 Add reference anchor tag links.
 Add raindrop icon.
 Add double drought icon.

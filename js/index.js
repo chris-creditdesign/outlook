@@ -115,43 +115,6 @@ function loadData () {
 
 function draw() {
 
-	/*	Add SVG elements to the play and pause buttons */
-	var playSvg = d3.select(".outer-wrapper .year-wrapper button.play")
-					.append("svg")
-					.attr("width", 50 )
-					.attr("height", 45 )
-				  .append("path")
-					.attr("d", "M11.166,23.963L22.359,17.5c1.43-0.824,1.43-2.175,0-3L11.166,8.037c-1.429-0.826-2.598-0.15-2.598,1.5v12.926C8.568,24.113,9.737,24.789,11.166,23.963z")
-					.style("pointer-events","none")
-					.style("fill", "#ffffff")
-					.style("stoke", "none")
-					.attr("transform", "translate(5,2), scale(1.25)");
-
-
-	var pauseSvg = d3.select(".outer-wrapper .year-wrapper button.pause")
-					.append("svg")
-					.attr("width", 50 )
-					.attr("height", 45 );
-
-	pauseSvg.append("rect")
-		.attr("width", 8)
-		.attr("height", 23)
-		.attr("x", 12)
-		.attr("y", 10)
-		.style("pointer-events","none")
-		.style("fill", "#ffffff")
-		.style("stoke", "none");
-
-
-	pauseSvg.append("rect")
-		.attr("width", 8)
-		.attr("height", 23)
-		.attr("x", 28)
-		.attr("y", 10)
-		.style("pointer-events","none")
-		.style("fill", "#ffffff")
-		.style("stoke", "none");
-
 	/*	Add SVG elements to the pointers */
 	var pointerSvg = d3.selectAll(".outer-wrapper .count-map span.pointer")
 					.append("svg")
@@ -177,7 +140,6 @@ function draw() {
 
 	var allValues = [];
 
-	var play = null;
 	var totalYears = $(".outer-wrapper .year-wrapper select#selectYear option").length;
 	var displayYear = $(".outer-wrapper .year-wrapper select#selectYear option:selected").val();
 	var counter = $(".outer-wrapper .year-wrapper select#selectYear option:selected").index();
@@ -258,37 +220,6 @@ function draw() {
 		return;
 	};
 
-	$(".outer-wrapper .year-wrapper button.play").on("click", function(e){
-		$(".outer-wrapper .year-wrapper button.play").css({"display":"none"});
-		$(".outer-wrapper .year-wrapper button.pause").css({"display":"block"});
-
-		if ( counter >= (totalYears-2) ) {
-			counter = 0;
-		};
-
-		play = window.setInterval(function () {
-			setSelectedIndex(counter);
-			counter += 1;
-			if (counter >= totalYears ) {
-				$("button.play").css({"display":"block"});
-				$("button.pause").css({"display":"none"});
-				window.clearInterval(play);
-			}
-		}, interval);
-
-		e.preventDefault();
-		return false;
-
-	});
-
-	$(".outer-wrapper .year-wrapper button.pause").on("click", function (e) {
-		$(".outer-wrapper .year-wrapper button.play").css({"display":"block"});
-		$(".outer-wrapper .year-wrapper button.pause").css({"display":"none"});
-		window.clearInterval(play);
-
-		e.preventDefault();
-		return false;
-	});
 
 	$(".outer-wrapper .count-map span.pointer").on("click", function (e) {
 		
@@ -319,18 +250,14 @@ function draw() {
 			select[ 0 ].selectedIndex = ui.value - 1;
 			displayYear = $("select#selectYear").val();
 			counter = $("select#selectYear option:selected").index();
-			$("button.play").css({"display":"block"});
-			$("button.pause").css({"display":"none"});
-			window.clearInterval(play);
+
 			updateYear();
 		}
 	});
 
 	$( ".outer-wrapper .year-wrapper #selectYear" ).change(function() {
 		counter = $("select#selectYear option:selected").index();
-		$("button.play").css({"display":"block"});
-		$("button.pause").css({"display":"none"});
-		window.clearInterval(play);
+
 		slider.slider( "value", this.selectedIndex + 1 );
 	});
 
