@@ -223,20 +223,24 @@ function draw() {
 
 	$(".outer-wrapper .count-map span.pointer").on("click", function (e) {
 		
-		if ( $(this).children("span").is(':visible') ) {
-			$(this).children("span").fadeOut(duration);
-		} else {
-			if ( parseInt($(this).css("left")) > (width/2) ) {
-				$(".outer-wrapper .count-map span.pointer").children("span").fadeOut(duration);
-				$(this).children("span").css("left","-320px").fadeIn(duration);
-			} else {
-				$(".outer-wrapper .count-map span.pointer").children("span").fadeOut(duration);
-				$(this).children("span").css("left","50px").fadeIn(duration);
-			}			
-		}
+		/*	Prevent default if not clicking on a ref link */
+		if( !$(e.target).is("a") ) {
 
-		e.preventDefault();
-		return false;
+			if ( $(this).children("span").is(':visible') ) {
+				$(this).children("span").fadeOut(duration);
+			} else {
+				if ( parseInt($(this).css("left")) > (width/2) ) {
+					$(".outer-wrapper .count-map span.pointer").children("span").fadeOut(duration);
+					$(this).children("span").css("left","-320px").fadeIn(duration);
+				} else {
+					$(".outer-wrapper .count-map span.pointer").children("span").fadeOut(duration);
+					$(this).children("span").css("left","50px").fadeIn(duration);
+				}			
+			}
+
+			e.preventDefault();
+			return false;
+		} 
 	})
 
 	/*	Build jQueryUI slider */
