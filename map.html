@@ -1188,7 +1188,7 @@
 		
 		<div class="key">
 
-			<ul>	
+			<ul class="colours">	
 				<li>
 					<span style="background: #1A2051; border-color: #1A2051;"></span>
 					<p>3 mm</p>
@@ -1245,15 +1245,26 @@
 
 			<p><strong>Precipitation Anomaly &#40;mm&#47;day&#41;</strong></p>
 
+			<p>Click on these symbols <br />
+				for more information.</p>
+			
+			<ul class="symbols">	
+				<li>
+					<span class="symbol"></span>
+					<p>Drought</p>
+				</li>
+				<li>
+					<span class="symbol extra"></span>
+					<p>Severe drought</p>
+				</li>
+			</ul>	
 
-			<p>Use the slider below to <br />
-				adjust the year displayed.</p>
 
 		</div>
 	</div> <!-- key-holder -->	
 
 	<!-- Pointers -->
-	<span class="pointer brazil-north value2012">
+	<span class="pointer extra brazil-north value2012">
 		<span>
 			<p>Drought spreads to northeast Brazil in early 2012, bringing water shortages to Bahia. 4 million people are affected with over 900 municipalities declaring a state of emergency.<sup><a href="#ref2012-1">1</a></sup></p>
 		</span>
@@ -1691,61 +1702,61 @@
 
 	<img src="images/load.gif" alt="loading">
 
+	<div class="year-wrapper">
+
+		<span class="year-label" >
+			<span class="year">1980</span>
+			<span class="year">1985</span>
+			<span class="year">1990</span>
+			<span class="year">1995</span>
+			<span class="year">2000</span>
+			<span class="year">2005</span>
+			<span class="year">2010</span>
+
+		</span>
+
+		<form>
+			<select name="selectYear" id="selectYear">
+				<option value="value1979">1979</option>
+				<option value="value1980">1980</option>
+				<option value="value1981">1981</option>
+				<option value="value1982">1982</option>
+				<option value="value1983">1983</option>
+				<option value="value1984">1984</option>
+				<option value="value1985">1985</option>
+				<option value="value1986">1986</option>
+				<option value="value1987">1987</option>
+				<option value="value1988">1988</option>
+				<option value="value1989">1989</option>
+				<option value="value1990">1990</option>
+				<option value="value1991">1991</option>
+				<option value="value1992">1992</option>
+				<option value="value1993">1993</option>
+				<option value="value1994">1994</option>
+				<option value="value1995">1995</option>
+				<option value="value1996">1996</option>
+				<option value="value1997">1997</option>
+				<option value="value1998">1998</option>
+				<option value="value1999">1999</option>
+				<option value="value2000">2000</option>
+				<option value="value2001">2001</option>
+				<option value="value2002">2002</option>
+				<option value="value2003">2003</option>
+				<option value="value2004">2004</option>
+				<option value="value2005">2005</option>
+				<option value="value2006">2006</option>
+				<option value="value2007">2007</option>
+				<option value="value2008">2008</option>
+				<option value="value2009">2009</option>
+				<option value="value2010">2010</option>
+				<option value="value2011">2011</option>
+				<option value="value2012" selected>2012</option>
+			</select>
+		</form>
+
+	</div><!-- year-wrapper -->
+
 </div> <!-- count-map -->
-
-<div class="year-wrapper">
-
-	<span class="year-label" >
-		<span class="year">1980</span>
-		<span class="year">1985</span>
-		<span class="year">1990</span>
-		<span class="year">1995</span>
-		<span class="year">2000</span>
-		<span class="year">2005</span>
-		<span class="year">2010</span>
-
-	</span>
-
-	<form>
-		<select name="selectYear" id="selectYear">
-			<option value="value1979">1979</option>
-			<option value="value1980">1980</option>
-			<option value="value1981">1981</option>
-			<option value="value1982">1982</option>
-			<option value="value1983">1983</option>
-			<option value="value1984">1984</option>
-			<option value="value1985">1985</option>
-			<option value="value1986">1986</option>
-			<option value="value1987">1987</option>
-			<option value="value1988">1988</option>
-			<option value="value1989">1989</option>
-			<option value="value1990">1990</option>
-			<option value="value1991">1991</option>
-			<option value="value1992">1992</option>
-			<option value="value1993">1993</option>
-			<option value="value1994">1994</option>
-			<option value="value1995">1995</option>
-			<option value="value1996">1996</option>
-			<option value="value1997">1997</option>
-			<option value="value1998">1998</option>
-			<option value="value1999">1999</option>
-			<option value="value2000">2000</option>
-			<option value="value2001">2001</option>
-			<option value="value2002">2002</option>
-			<option value="value2003">2003</option>
-			<option value="value2004">2004</option>
-			<option value="value2005">2005</option>
-			<option value="value2006">2006</option>
-			<option value="value2007">2007</option>
-			<option value="value2008">2008</option>
-			<option value="value2009">2009</option>
-			<option value="value2010">2010</option>
-			<option value="value2011">2011</option>
-			<option value="value2012" selected>2012</option>
-		</select>
-	</form>
-
-</div><!-- year-wrapper -->
 
 <!--[if lte IE 8]>
 	<script type="text/javascript" src="js/index-ie.js"></script>
