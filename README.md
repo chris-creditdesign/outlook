@@ -5,7 +5,6 @@ http://d3js.org/
 
 To do:
 Add final text and references
-“Extended drought (>1 year)”
 
 	cat outlook-header.html map.html outlook-footer.html > index.html
 	cat deploy-header.html map.html deploy-footer.html > deploy/outlook-drought.html

@@ -44,7 +44,7 @@ function checkD3 () {
 
 function loadData () {
 
-	d3.csv('data/gpcp_anomalies_1979-2012-edit-2.csv', function(d) {
+	d3.csv('data/pecent_anomalies_annual_1979-2012.csv', function(d) {
 
 		var thisLong = +d.long;
 
@@ -205,7 +205,10 @@ function draw() {
 	var rectHeight = Math.round(height / -(minLat - maxLat)) + 1;
 
 	/*	Define colour scale */
-	var colourScale = d3.scale.linear().domain([-3, -2.5, -2, -1.5, -1, -0.5, 0, 0.5, 1, 1.5, 2, 2.5, 3]).range(["#442B0C", "#5A3E17", "#8F6823", "#C3AE4A", "#96B247", "#8fc696", "#b1cfa5", "#3EC6DC", "#348FCA", "#2E52A5", "#31328C", "#1F1B5A", "#1A2051"]);
+	var colourScale = d3.scale.linear()
+						.domain([-30, -25, -20, -15, -10, -5, 0, 5, 10, 15, 20, 25, 30])
+						.range(["#442B0C", "#5A3E17", "#8F6823", "#C3AE4A", "#96B247", "#8fc696", "#b1cfa5", "#3EC6DC", "#348FCA", "#2E52A5", "#31328C", "#1F1B5A", "#1A2051"])
+						.clamp(true);
 
 
 	/*	==================================================================================== */
@@ -365,7 +368,7 @@ function draw() {
 				/* Update the tooltip text */
 				d3.select(".tooltip")
 					.select(".value")
-					.html(d["" + displayYear + ""] + " mm");
+					.html(d["" + displayYear + ""] + "&#37;");
 
 
 				/* Show the tooltip */

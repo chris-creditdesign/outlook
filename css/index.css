@@ -93,7 +93,7 @@
 ----------------------------------*/
 .outer-wrapper .key-holder {
 	position: absolute;
-	width: 240px;
+	width: 250px;
 	bottom: 0px;
 	display: none;
 	pointer-events:none;
