@@ -8,6 +8,12 @@ Add final text and references
 
 	cat outlook-header.html map.html outlook-footer.html > index.html
 	cat deploy-header.html map.html deploy-footer.html > deploy/outlook-drought.html
+	1986:this isn’t an anomaly, but a geographical mixup: the blurb for Siberia should be in northeast Russia, not  northwest Russia.
+
+	2003: Siberia blurb misplaced again – Siberia is in eastern Russia, not  near Scandinavia.
+
+	2010: the icon for Russia’s drought is way over in the east (Siberia), whereas the actual drought appear to be in western Russia.
+
 
 
 The process:
