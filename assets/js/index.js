@@ -44,7 +44,7 @@ function checkD3 () {
 
 function loadData () {
 
-	d3.csv('data/pecent_anomalies_annual_1979-2012.csv', function(d) {
+	d3.csv('data/percent_anomalies_annual_1979-2012.csv', function(d) {
 
 		var thisLong = +d.long;
 
