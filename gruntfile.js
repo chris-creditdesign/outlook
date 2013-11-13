@@ -5,6 +5,21 @@ module.exports = function(grunt){
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 
+		uglify: {
+			build: {
+				files: {
+					'dist/js/index.js': ['assets/js/index.js']
+				}
+			}
+		},
+
+		cssmin: {
+			build: {
+				src: ['assets/css/index.css'],
+				dest: 'dist/css/index.css'
+			}
+		},
+
 		concat: {
 			buildIndex: {
 				src: ['assets/headers/outlook-header.html', 'map.html', 'assets/headers/outlook-footer.html'],
@@ -13,22 +28,26 @@ module.exports = function(grunt){
 			distIndex: {
 				src: ['assets/headers/dist-header.html', 'map.html', 'assets/headers/dist-footer.html'],
 				dest: 'dist/index.html'
+			}
+		},
+
+		watch: {
+			html: {
+				files: ['map.html'],
+				tasks: ['concat']
 			},
-			buildData: {
-				src: ['assets/data/precipitation_anomalies_annual_1979-2012.csv'],
-				dest: 'dist/data/precipitation_anomalies_annual_1979-2012.csv'
+			js: {
+				files: ['assets/js/index.js'],
+				tasks: ['uglify']
 			},
-			buildCSS: {
-				src: ['assets/css/index.css'],
-				dest: 'dist/css/index.css'
-			},
-			buildJS: {
-				src: ['assets/js/index.js'],
-				dest: 'dist/js/index.js'
+			css: {
+				files: ['assets/css/index.css'],
+				tasks: ['cssmin']
 			}
 		}
+
 	});
 
-	grunt.registerTask('default', []);
+	grunt.registerTask('default', ['watch']);
 
 };
