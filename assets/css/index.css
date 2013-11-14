@@ -59,8 +59,12 @@
 .outer-wrapper .outline-map {
 	position: absolute;
 	display: none;
+	width: 958px;
+	height: 500px;
+	background: url(../images/borders-desert.svg);
+	background-size: 958px 500px;
+	margin: 0;
 }
-
 
 .outer-wrapper .count-map svg rect {
 	cursor: pointer;
