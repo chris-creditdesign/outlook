@@ -125,7 +125,16 @@ function draw() {
 					.attr("width", 35 )
 					.attr("height", 35 )
 				.append("path")
-					.attr("d", iconPath)
+					.attr("d", function (d) {
+						/*	Check to see if the containing span has the class
+							elnino and if so give it the elnino path
+							otherwise give it the standard drought path */
+						if (d3.select(this.parentNode.parentNode).classed("elnino")) {
+							return elNinoPath;
+						} else {
+							return iconPath;
+						}
+					})
 					.style("stoke", "none");
 
 
