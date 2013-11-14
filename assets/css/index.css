@@ -311,7 +311,7 @@
 
 .outer-wrapper .count-map span.pointer > svg, 
 .outer-wrapper .key-holder .key span.symbol > svg {
-	fill: #999999;
+	fill: #5A3E17;
 }
 
 
@@ -323,7 +323,7 @@
 
 .outer-wrapper .count-map span.pointer.extra > svg,
 .outer-wrapper .key-holder .key span.symbol.extra > svg {
-	fill: #5A3E17;
+	fill: #000000;
 }
 
 .outer-wrapper .count-map span.pointer > span {
