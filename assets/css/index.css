@@ -459,9 +459,13 @@
 }
 .outer-wrapper .count-map .russia-west{
 	left: 534px;
-	top: 0px;
+	top: 0;
 }
 
+.outer-wrapper .count-map .elnino {
+	left: 150px;
+	top: 330px;
+}
 
 
 
