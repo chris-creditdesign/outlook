@@ -112,7 +112,7 @@
 
 
 .outer-wrapper .key ul, .outer-wrapper .key p {
-	margin: 10px;
+	margin: 10px 0 0 0;
 }
 
 .outer-wrapper .key span.symbol {
