@@ -426,11 +426,26 @@ function draw() {
 	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 		showElements();
 	} else {
-		/*	Load the svg after a delay to ensure the canvas map fills the stage
-			first and the user is not left looking at a blank screen */
-		window.setTimeout(function() {
-				createSvg();
-		}, 500);
+		if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)) { /* test for MSIE x.x; */
+			var ieversion=new Number(RegExp.$1) /* capture x.x portion and store as a number */
+			if (ieversion<=9){
+				showElements(); /* don't serve the svg to ie9 because it seems to freak out */
+			} else {
+				/*	We are on a desktop using IE 10 or above so load the svg
+					*/
+				window.setTimeout(function() {
+						createSvg();
+				}, 500);
+			}
+		} else {
+			/*	We know we are on a desktop not using IE so...
+				Load the svg after a delay to ensure the canvas map fills the stage
+				first and the user is not left looking at a blank screen */
+			window.setTimeout(function() {
+					createSvg();
+			}, 500);
+		}
+
 
 	}
 
