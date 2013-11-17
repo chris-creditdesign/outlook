@@ -17,6 +17,10 @@
 	display: block;
 }
 
+.js-enabled .outer-wrapper .count-map .pointers h3 {
+	display: none;
+}
+
 /* Main elements - business as usual
 ----------------------------------*/
 
