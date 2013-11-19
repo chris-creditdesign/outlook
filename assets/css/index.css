@@ -187,6 +187,16 @@
 	margin: 0 0 0 54px;
 }
 
+/* Credit
+----------------------------------*/
+.precipitation-credit {
+	font-style: italic;
+	text-transform: uppercase;
+	font-size: 85%;
+	line-height: 1.461em;
+	color: #939393;
+}
+
 
 
 /* Slider 
@@ -450,8 +460,8 @@
 	top: 378px;
 }
 .outer-wrapper .count-map .new-zealand{
-	left: 858px;
-	top: 417px;
+	left: 887px;
+	top: 397px;
 }
 .outer-wrapper .count-map .new-guinea{
 	left: 840px;
@@ -464,6 +474,10 @@
 .outer-wrapper .count-map .china{
 	left: 773px;
 	top: 190px;
+}
+.outer-wrapper .count-map .mongolia{
+	left: 833px;
+	top: 123px;
 }
 .outer-wrapper .count-map .japan{
 	left: 830px;
