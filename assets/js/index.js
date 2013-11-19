@@ -427,7 +427,7 @@ function draw() {
 		showElements();
 	} else {
 		if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)) { /* test for MSIE x.x; */
-			var ieversion=new Number(RegExp.$1) /* capture x.x portion and store as a number */
+			var ieversion= parseInt(RegExp.$1, 10); /* capture x.x portion and store as a number */
 			if (ieversion<=9){
 				showElements(); /* don't serve the svg to ie9 because it seems to freak out */
 			} else {
