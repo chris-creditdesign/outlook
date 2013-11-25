@@ -8,15 +8,15 @@ module.exports = function(grunt){
 		uglify: {
 			build: {
 				files: {
-					'dist/js/outlook-map.js': ['assets/js/outlook-map.js']
+					'dist/js/drought-map.js': ['assets/js/drought-map.js']
 				}
 			}
 		},
 
 		cssmin: {
 			build: {
-				src: ['assets/css/outlook-map.css'],
-				dest: 'dist/css/outlook-map.css'
+				src: ['assets/css/drought-map.css'],
+				dest: 'dist/css/drought-map.css'
 			}
 		},
 
@@ -27,7 +27,7 @@ module.exports = function(grunt){
 			},
 			distIndex: {
 				src: ['assets/headers/dist-header.html', 'map.html', 'assets/headers/dist-footer.html'],
-				dest: 'dist/outlook-map.html'
+				dest: 'dist/drought-map.html'
 			}
 		},
 
@@ -37,11 +37,11 @@ module.exports = function(grunt){
 				tasks: ['concat']
 			},
 			js: {
-				files: ['assets/js/outlook-map.js'],
+				files: ['assets/js/drought-map.js'],
 				tasks: ['uglify']
 			},
 			css: {
-				files: ['assets/css/outlook-map.css'],
+				files: ['assets/css/drought-map.css'],
 				tasks: ['cssmin']
 			}
 		}
