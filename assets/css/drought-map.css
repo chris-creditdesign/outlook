@@ -1,9 +1,5 @@
 /* Hide show context 'plus' background image on refs
 ----------------------------------*/
-#content ol.references li.show-context-item a {
-	
-}
-
 ol.references li.back-to-top-item {
 	float: left;
 	padding: 0;
