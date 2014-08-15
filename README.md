@@ -3,7 +3,7 @@
 Interactive graphic for Nature Outlook built with D3.js
 http://d3js.org/
 
-Preview at: http://chris-creditdesign.github.io/outlook/assets/
+Published at: <http://www.nature.com/news/online-collaboration-scientists-and-the-social-network-1.15711>
 
 ### Build
 
