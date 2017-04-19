@@ -3,7 +3,7 @@
 Interactive graphic for Nature Outlook built with D3.js
 http://d3js.org/
 
-Published at: <http://www.nature.com/news/online-collaboration-scientists-and-the-social-network-1.15711>
+Published at: http://www.nature.com/nature/journal/v501/n7468_supp/interactive3/drought-map.html
 
 ### Build
 
